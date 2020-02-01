@@ -5,121 +5,86 @@ using UnityEngine.UI;
 
 public class _MGR_ScoreManager : MonoBehaviour
 {
-    ////GameScore Display
-    ////Game Score is kept here
-    //public static int currentGameScore;
+    public static int currentgamescore;
 
-    ////HighScores Display
-    ////High Score are kept here
-    //public static int[] highScoresBoard = new int[11];
-
-    ////GameLaunch Trigger
-    ////Resets all HighScores to 0
-    ////Trigger upon gameLaunch [enter title screen]
-    //public static void ResetHighScores()
-    //{
-    //    for (int i=0; i<11; i++)
-    //    {
-    //        highScoresBoard[i]=0;
-    //    }
-    //}
-
-    ////GameStart Trigger
-    ////Resets GameScore to 0
-    ////Trigger upon gameStart [startGame ButtonDown]
-    //public static void ResetGameScore()
-    //{
-    //    currentGameScore = 0;
-    //}
-
-    ////Score Increment
-    ////Imput was pressed, scoring happened
-    ////New extra-points to be sent in package
-    ////Trigger upon ~InputReseived [scoring needs to have been calculated]
-    //public static int[] DefinedScoringBundle(int scoreBundle)
-    //{
-    //    int[] oldAndNewGameScore = new int[2];
-    //    oldAndNewGameScore[0]=currentGameScore;
-    //    oldAndNewGameScore[1]=currentGameScore + scoreBundle;
-    //    currentGameScore = oldAndNewGameScore[1];
-    //    return oldAndNewGameScore;
-    //}
-
-    ////EndGame Trigger
-    ////Current GameScore is added to HighScores
-    ////Trigger upon Game over
-    ////STRUCTURE OF RETURNED ITEM:
-    //    //ARRAY - 12 INTs
-    //    //INTs 0 to 9 : SPOTS 1 to 10 ON BOARD
-    //    //INT 10 : GAME SCORE IS LOWER THAN HIGH SCORES
-    //    //INT 11 : NUMBER OF THE INT TO HIGHLIGHT (=last game score)
-    //public static int[] GameOver()
-    //{
-    //    bool searchHighScoreSpot = false;
-    //    int newHighScoreSpot = 0;
-    //    int finalGameScore = currentGameScore;
-    //    int[] newHighScoreBoard = new int[12];
-    //    for (int i=0; i<10; i++)
-    //    {
-    //        newHighScoreBoard[i] = highScoresBoard[i];
-    //    }
-
-    //    //Is current game score worthy of High Scores?
-    //    //yaas
-    //    if (finalGameScore > newHighScoreBoard[9])
-    //    {
-    //        searchHighScoreSpot = true;
-    //        while(searchHighScoreSpot==true)
-    //        {
-    //            for(int i=8; i>=0; i--)
-    //            {
-    //                if(newHighScoreBoard[i]>=finalGameScore)
-    //                {
-    //                    newHighScoreSpot = i + 1;
-    //                    searchHighScoreSpot = false;
-    //                }
-    //                    //NEW HIGH SCORE #1!!!
-    //                else if (i==0 && finalGameScore>newHighScoreBoard[i])
-    //                {
-    //                    searchHighScoreSpot = false;
-    //                }
-    //            }
-    //        }
-    //        //recalculate all scores @board
-    //        if(newHighScoreSpot<9)
-    //        {
-    //            for (int i = 8; i <= newHighScoreSpot; i--)
-    //            {
-    //                newHighScoreBoard[i+1] = newHighScoreBoard[i];
-    //            }
-    //        }
-    //        newHighScoreBoard[newHighScoreSpot] = finalGameScore;
-    //        newHighScoreBoard[11] = newHighScoreSpot;
-    //        return newHighScoreBoard;
-    //    }
-
-    //    //nope
-    //    else
-    //    {
-    //        newHighScoreBoard[10] = finalGameScore;
-    //        newHighScoreBoard[11] = 10;
-    //        return newHighScoreBoard;
-    //    }
-    //}
-
-    public Text ResetHighScoresGO;
     public Text CurrentGameScoreGO;
-    public GameObject InputValueGo;
-
-    void Start()
-    { }
-
-    void Update()
-    { }
+    public GameObject InputValueGO;
 
     public void CurrentGameScoreDisp()
     {
         CurrentGameScoreGO.text = "2";
-        InputValueGo.GetComponent<Text>().text = "yaas";
+        InputValueGO.GetComponent<Text>().text = "yaas";
     }
+
+    public Text[] HSobj = new Text[11];
+
+    public void resethighscores()
+    {
+        for (int i = 0; i < 11; i++)
+        {
+            HSobj[i].text = "0";
+        }
+    }
+    
+    public void resetgamescore()
+    {
+        CurrentGameScoreGO.text = "0";
+    }
+    
+    public static int[] definedscoringbundle(int scorebundle)
+    {
+        int[] oldandnewgamescore = new int[2];
+        oldandnewgamescore[0] = currentgamescore;
+        oldandnewgamescore[1] = currentgamescore + scorebundle;
+        currentgamescore = oldandnewgamescore[1];
+        return oldandnewgamescore;
+    }
+
+    //public static int[] gameover()
+    //{
+    //    bool searchhighscorespot = false;
+    //    int newhighscorespot = 0;
+    //    int finalgamescore = currentgamescore;
+    //    int[] newhighscoreboard = new int[12];
+    //    for (int i = 0; i < 10; i++)
+    //    {
+    //        newhighscoreboard[i] = highscoresboard[i];
+    //    }
+        
+    //    if (finalgamescore > newhighscoreboard[9])
+    //    {
+    //        searchhighscorespot = true;
+    //        while (searchhighscorespot == true)
+    //        {
+    //            for (int i = 8; i >= 0; i--)
+    //            {
+    //                if (newhighscoreboard[i] >= finalgamescore)
+    //                {
+    //                    newhighscorespot = i + 1;
+    //                    searchhighscorespot = false;
+    //                }
+    //                else if (i == 0 && finalgamescore > newhighscoreboard[i])
+    //                {
+    //                    searchhighscorespot = false;
+    //                }
+    //            }
+    //        }
+    //        if (newhighscorespot < 9)
+    //        {
+    //            for (int i = 8; i <= newhighscorespot; i--)
+    //            {
+    //                newhighscoreboard[i + 1] = newhighscoreboard[i];
+    //            }
+    //        }
+    //        newhighscoreboard[newhighscorespot] = finalgamescore;
+    //        newhighscoreboard[11] = newhighscorespot;
+    //        return newhighscoreboard;
+    //    }
+    //    else
+    //    {
+    //        newhighscoreboard[10] = finalgamescore;
+    //        newhighscoreboard[11] = 10;
+    //        return newhighscoreboard;
+    //    }
+    //}
 }
