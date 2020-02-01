@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum SucceedableState
 {
@@ -9,14 +10,22 @@ public enum SucceedableState
     SUCCEEDABLE
 }
 
+public enum InputType
+{
+    A, B, X, Y
+}
+
 public class InputEvent : MonoBehaviour
 {
     #region Components
     Animator circleAnimator;
     #endregion
     [HideInInspector] public SucceedableState succeedState;
+    public InputType inputType;
 
     bool isActive;
+
+    UnityEvent endEvent;
 
 
     void Start()
@@ -28,14 +37,17 @@ public class InputEvent : MonoBehaviour
     }
 
     //Fonction qui lance l'animation du cercle
-    public void PlayCircleAnimation()
+    public InputEvent SetCurrentInputEvent()
     {
         circleAnimator.SetTrigger("BecomeCurrentInput");
+        return this;
     }
+
     //Fonction qui vérifie si il est bon
-    public bool CheckSucceed()
+    public bool CheckSucceed(InputType type)
     {
-        if (succeedState == SucceedableState.SUCCEEDABLE)
+        //_MGR_GameManager.Instance
+        if (succeedState == SucceedableState.SUCCEEDABLE && inputType == type)
         {
             return true;
         }
@@ -43,7 +55,6 @@ public class InputEvent : MonoBehaviour
         {
             return false;
         }
-
     }
 
 }
