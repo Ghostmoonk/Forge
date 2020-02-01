@@ -20,6 +20,7 @@ public class InputEvent : MonoBehaviour
 {
     #region Components
     [SerializeField] Animator circleAnimator;
+    public SpriteRenderer buttonSprite;
     #endregion
     [HideInInspector] public SucceedableState succeedState;
     public InputType inputType;

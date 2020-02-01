@@ -226,6 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   circleAnimator: {fileID: 636299854720498146}
+  buttonSprite: {fileID: 8019270098733528244}
   succeedState: 0
   inputType: 0
   endEvent:
