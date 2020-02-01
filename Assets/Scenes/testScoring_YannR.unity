@@ -773,7 +773,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 0.8160377, b: 0.8160377, a: 1}
+    m_NormalColor: {r: 0.8156863, g: 1, b: 0.85250974, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -795,7 +795,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 302395706}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1837457285}
+        m_MethodName: gameover
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &302395706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1204,7 +1215,7 @@ GameObject:
   - component: {fileID: 372312942}
   - component: {fileID: 372312941}
   m_Layer: 5
-  m_Name: Text (16)
+  m_Name: HIGHLIGHTERlab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1260,7 +1271,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Multiplier Value
+  m_Text: High Score to Highlight
 --- !u!222 &372312942
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1764,7 +1775,7 @@ GameObject:
   - component: {fileID: 551250379}
   - component: {fileID: 551250378}
   m_Layer: 5
-  m_Name: MULTIPLERlab
+  m_Name: MULTIPLIERlab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1820,7 +1831,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Current Multiplier
+  m_Text: Multiplier Value
 --- !u!222 &551250379
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4760,7 +4771,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Current Multiplier
+  m_Text: Multiplier Value
 --- !u!222 &1773094514
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4963,7 +4974,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentGameScoreGO: {fileID: 1362662337}
-  InputValueGO: {fileID: 677647567}
+  InputValueGO: {fileID: 677647569}
+  LastHighGO: {fileID: 1062151142}
+  CurrentGameScoreT1GO: {fileID: 533442932}
+  ScoreBundleGO: {fileID: 1444456982}
+  MultiplierGO: {fileID: 1773094513}
+  HighlighterGO: {fileID: 1863194543}
   HSobj:
   - {fileID: 2116703770}
   - {fileID: 790211374}
@@ -4976,10 +4992,20 @@ MonoBehaviour:
   - {fileID: 657954760}
   - {fileID: 1373995314}
   - {fileID: 1726969708}
-  LastHighGO: {fileID: 1062151142}
-  CurrentGameScoreT1GO: {fileID: 533442932}
-  ScoreBundleGO: {fileID: 1444456982}
-  MultiplierGO: {fileID: 1773094513}
+  HSlab:
+  - {fileID: 1985854546}
+  - {fileID: 458118332}
+  - {fileID: 545055232}
+  - {fileID: 1040971807}
+  - {fileID: 882789192}
+  - {fileID: 364976835}
+  - {fileID: 1463927333}
+  - {fileID: 1886757906}
+  - {fileID: 1329189156}
+  - {fileID: 899763118}
+  - {fileID: 288719594}
+  HSint: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  CurrentGameScore: 0
 --- !u!1 &1863194541
 GameObject:
   m_ObjectHideFlags: 0
@@ -4992,7 +5018,7 @@ GameObject:
   - component: {fileID: 1863194544}
   - component: {fileID: 1863194543}
   m_Layer: 5
-  m_Name: Text (16)
+  m_Name: HIGHLIGHTERdisp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5048,7 +5074,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Multiplier Value
+  m_Text: High Score to Highlight
 --- !u!222 &1863194544
 CanvasRenderer:
   m_ObjectHideFlags: 0
