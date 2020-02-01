@@ -27,6 +27,7 @@ public class Blacksmith : MonoBehaviour
                         if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.CheckSucceed(InputType.A))
                         {
                             //Appelle une fonction de succès du QTE chez le gameManager
+                            _MGR_SoundDesign.Instance.PlaySound("A", gameObject.GetComponent<AudioSource>());
 
                         }
                         //C'est raté
@@ -40,7 +41,7 @@ public class Blacksmith : MonoBehaviour
                     {
                         if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType == InputType.B)
                         {
-
+                            _MGR_SoundDesign.Instance.PlaySound("B", gameObject.GetComponent<AudioSource>());
                         }
                         else
                         {
@@ -51,7 +52,7 @@ public class Blacksmith : MonoBehaviour
                     {
                         if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType == InputType.X)
                         {
-
+                            _MGR_SoundDesign.Instance.PlaySound("X", gameObject.GetComponent<AudioSource>());
                         }
                         else
                         {
@@ -62,7 +63,7 @@ public class Blacksmith : MonoBehaviour
                     {
                         if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType == InputType.Y)
                         {
-
+                            _MGR_SoundDesign.Instance.PlaySound("Y", gameObject.GetComponent<AudioSource>());
                         }
                         else
                         {
