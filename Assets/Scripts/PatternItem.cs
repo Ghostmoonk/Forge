@@ -11,28 +11,37 @@ public class PatternItem : MonoBehaviour
     public Queue<InputEvent> inputEvents;
     [HideInInspector] public InputEvent currentInputEvent;
     [HideInInspector] public InputEvent secondInputEvent;
-    Color colorSecondInputE;
 
     #endregion
 
     int queueSize;
     float speedInputEvent;
-    enum State { REPAIRED, BROKEN }
-    State state = State.BROKEN;
+
+    public enum State { REPAIRED, BROKEN }
+
+    public State state = State.BROKEN;
+
+    [SerializeField] int numberOfInput;
 
     public void UpdateModel()
     {
         meshFilter = GetComponent<MeshFilter>();
         meshRenderer = GetComponent<MeshRenderer>();
 
-        Debug.Log("Update bien le model");
-        meshFilter.mesh = model.brokenMesh.sharedMesh;
+        if (state == State.REPAIRED)
+        {
+            meshFilter.mesh = model.repairedMesh.sharedMesh;
 
-        System.Array.Reverse(model.meshRenderer.sharedMaterials);
-        meshRenderer.sharedMaterials = model.meshRenderer.sharedMaterials;
+        }
+        else
+        {
+            meshFilter.mesh = model.brokenMesh.sharedMesh;
+        }
+
+        GetComponent<MeshRenderer>().sharedMaterials = model.meshRenderer.sharedMaterials;
+
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         currentInputEvent = null;
@@ -40,8 +49,7 @@ public class PatternItem : MonoBehaviour
         inputEvents = new Queue<InputEvent>();
         meshFilter = GetComponent<MeshFilter>();
         meshRenderer = GetComponent<MeshRenderer>();
-        meshFilter.mesh = model.brokenMesh.sharedMesh;
-        meshRenderer.sharedMaterials = model.meshRenderer.sharedMaterials;
+
         for (int i = 0; i < transform.childCount; i++)
         {
             inputEvents.Enqueue(transform.GetChild(i).GetComponent<InputEvent>());
