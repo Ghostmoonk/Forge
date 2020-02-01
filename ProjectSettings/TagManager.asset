@@ -6,6 +6,7 @@ TagManager:
   tags:
   - InputEvent
   - ItemContainer
+  - Item
   layers:
   - Default
   - TransparentFX

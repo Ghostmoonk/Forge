@@ -29,37 +29,39 @@ public class PatternItem : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
             inputEvents.Enqueue(transform.GetChild(i).GetComponent<InputEvent>());
-            transform.GetChild(i).GetComponent<InputEvent>().gameObject.SetActive(false);
+            //transform.GetChild(i).GetComponent<InputEvent>().gameObject.SetActive(false);
         }
         queueSize = inputEvents.Count;
     }
 
     // fonction qui se fait appeler par le game manager pour avancer
-    public void SwapInputEvents()
+    public void SetCurrentInputEvent()
     {
         //on définit le current event 
         if (secondInputEvent == null)
         {
             currentInputEvent = inputEvents.Dequeue();
-            Debug.Log(currentInputEvent);
+            secondInputEvent = inputEvents.Dequeue();
         }
         else
         {
             currentInputEvent = secondInputEvent;
             currentInputEvent.gameObject.GetComponent<SpriteRenderer>().color = colorSecondInputE;
+            if (inputEvents.Count > 0)
+                secondInputEvent = inputEvents.Dequeue();
+
         }
-        currentInputEvent.endEvent.AddListener(SwapInputEvents);
         //on lance l'anim du current event
-        currentInputEvent.GetCurrentInputEvent();
-        //On définit un second InputEvent et on l'active, et on le met avec une animation inisble
-        secondInputEvent = inputEvents.Dequeue();
-        secondInputEvent.gameObject.SetActive(true);
+        currentInputEvent.PlayCircleAnimation();
         secondInputEvent.succeedState = SucceedableState.PENDING;
+        //currentInputEvent.endEvent.AddListener(SwapInputEvents);
+        //On définit un second InputEvent et on l'active, et on le met avec une animation inisble
+
         colorSecondInputE = secondInputEvent.buttonSprite.color;
         secondInputEvent.buttonSprite.color = new Color(colorSecondInputE.r, colorSecondInputE.g, colorSecondInputE.b, colorSecondInputE.a / 2);
         //apparemment on lance un AddListener
 
-        Destroy(currentInputEvent.gameObject);
+        //Destroy(currentInputEvent.gameObject);
     }
 
     private void RepairItem()
