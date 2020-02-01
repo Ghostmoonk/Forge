@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class _MGR_ScoreManager : MonoBehaviour
 {
-    public static int currentgamescore;
-
     public Text CurrentGameScoreGO;
     public GameObject InputValueGO;
     public Text[] HSobj = new Text[11];
@@ -14,7 +13,7 @@ public class _MGR_ScoreManager : MonoBehaviour
     public Text CurrentGameScoreT1GO;
     public Text ScoreBundleGO;
     public Text MultiplierGO;
-    
+    public int CurrentGameScore = 0;
 
     public void TestButton()
     {
@@ -33,26 +32,28 @@ public class _MGR_ScoreManager : MonoBehaviour
     public void resetgamescore()
     {
         CurrentGameScoreGO.text = "0";
+        CurrentGameScoreT1GO.text = "0";
+        CurrentGameScore = 0;
     }
 
     public void GoodInput()  { DiffertentInputs(2); }
     public void BadInput() { DiffertentInputs(1); }
     public void RandomInput() { DiffertentInputs(0); }
 
-    public int[] DiffertentInputs(int mode)
+    public void DiffertentInputs(int mode)
     {
-        int inputValue = Random.Range(1, 10);
-        int multiplier = Random.Range(1, 10);
+        int inputValue = UnityEngine.Random.Range(1, 10);
+        int multiplier = UnityEngine.Random.Range(1, 10);
         if (mode == 2) inputValue = 10;
         if (mode == 1) inputValue = 1;
         InputValueGO.GetComponent<Text>().text = inputValue.ToString();
         MultiplierGO.text = multiplier.ToString();
+        int scorebundle = inputValue * multiplier;
+        ScoreBundleGO.text = scorebundle.ToString();
 
-        int[] oldandnewgamescore = new int[2];
-        //oldandnewgamescore[0] = currentgamescore;
-        //oldandnewgamescore[1] = currentgamescore + scorebundle;
-        //currentgamescore = oldandnewgamescore[1];
-        return oldandnewgamescore;
+        CurrentGameScoreGO.text = (CurrentGameScore + scorebundle).ToString();
+        CurrentGameScoreT1GO.text = CurrentGameScore.ToString();
+        CurrentGameScore += scorebundle;
     }
 
     //public static int[] gameover()
