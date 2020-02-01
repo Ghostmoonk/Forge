@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{85015205-6363-4c22-ae2d-23e62d956f03}">
+		<property name="assetPath">
+			<value>Marteau1-001.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.1442176870748297</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5ad382e0-9db3-4e5e-856c-eaa19bc1fb17}</destination>
+		</relationship>
+	</object>
+</objects>
