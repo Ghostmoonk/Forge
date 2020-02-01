@@ -35,7 +35,15 @@ public class InputEvent : MonoBehaviour
     //Fonction qui vérifie si il est bon
     public bool CheckSucceed()
     {
-        return true;
+        if (succeedState == SucceedableState.SUCCEEDABLE)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
     }
 
 }

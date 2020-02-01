@@ -18,5 +18,6 @@ public class InputEventActions : MonoBehaviour
     public void EndCircleAnim()
     {
         inputEvent.succeedState = SucceedableState.FAILABLE;
+        inputEvent.CheckSucceed();
     }
 }

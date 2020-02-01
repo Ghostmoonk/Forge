@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Blacksmith : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] float forgeCooldown;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (_MGR_GameManager.Instance.currentInputEvent != null)
+        {
+
+        }
     }
 }
