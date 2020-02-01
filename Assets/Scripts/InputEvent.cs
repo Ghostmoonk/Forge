@@ -22,6 +22,7 @@ public class InputEvent : MonoBehaviour
     [SerializeField] Animator circleAnimator;
     public SpriteRenderer buttonSprite;
     #endregion
+
     [HideInInspector] public SucceedableState succeedState;
     public InputType inputType;
 
@@ -34,11 +35,9 @@ public class InputEvent : MonoBehaviour
     }
 
     //Fonction qui lance l'animation du cercle
-    public InputEvent GetCurrentInputEvent()
+    public void PlayCircleAnimation()
     {
-        Debug.Log(circleAnimator);
         circleAnimator.SetTrigger("BecomeCurrentInput");
-        return this;
     }
 
     //Fonction qui vérifie si il est bon

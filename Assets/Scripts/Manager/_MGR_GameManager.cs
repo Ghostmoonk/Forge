@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class _MGR_GameManager : MonoBehaviour
 {
+
+    #region Components
+    [SerializeField] BoxCollider itemTrigger;
+    GameObject itemContainer;
+    #endregion
+
+    public float conveyorBeltSpeed;
+
     private static _MGR_GameManager _instance;
     public static _MGR_GameManager Instance
     {
@@ -26,7 +34,6 @@ public class _MGR_GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    GameObject itemContainer;
     Queue<PatternItem> queuesPattern;
     public PatternItem currentPatternItem;
 
@@ -42,17 +49,13 @@ public class _MGR_GameManager : MonoBehaviour
             queuesPattern.Enqueue(itemContainer.transform.GetChild(i).GetComponent<PatternItem>());
         }
 
-        //On dequeue le premeir item
-        if (queuesPattern.Count > 0)
-        {
-            currentPatternItem = queuesPattern.Dequeue();
-        }
+        // //On dequeue le premeir item
+        // if (queuesPattern.Count > 0)
+        // {
+        //     currentPatternItem = queuesPattern.Dequeue();
+        // }
         //On commence les QTE 1s après le début du jeu
-        StartCoroutine(nameof(WaitBeforeStart));
-    }
-
-    private void UnfoldQueues()
-    {
+        StartCoroutine(nameof(ConveyorBelt));
 
     }
 
@@ -69,7 +72,22 @@ public class _MGR_GameManager : MonoBehaviour
     IEnumerator WaitBeforeStart()
     {
         yield return new WaitForSeconds(1f);
-        currentPatternItem.SwapInputEvents();
+        currentPatternItem.SetCurrentInputEvent();
 
     }
+    IEnumerator ConveyorBelt()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.05f);
+            itemContainer.transform.Translate(Vector3.right * Time.deltaTime * conveyorBeltSpeed);
+        }
+    }
+
+    public void StopConveyorBelt()
+    {
+        StopCoroutine(ConveyorBelt());
+        currentPatternItem = queuesPattern.Dequeue();
+    }
+
 }
