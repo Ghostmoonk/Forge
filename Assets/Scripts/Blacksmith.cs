@@ -8,10 +8,15 @@ public class Blacksmith : MonoBehaviour
     Animator animator;
     SpriteRenderer spriteRenderer;
     #endregion
+
+
     public void PlayASound()
     {
         Debug.Log("" + _MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType);
-        _MGR_SoundDesign.Instance.PlaySound("" + _MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType, gameObject.GetComponent<AudioSource>());
+        Debug.Log("DEbug avant" + GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShakin>().shakeDuration);
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShakin>().shakeDuration = 1f;
+        Debug.Log("Debug après" + GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShakin>().shakeDuration);
+        //_MGR_SoundDesign.Instance.PlaySound("" + _MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType, gameObject.GetComponent<AudioSource>());
     }
     private void Update()
     {
@@ -30,13 +35,13 @@ public class Blacksmith : MonoBehaviour
                         if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.CheckSucceed(InputType.A))
                         {
                             //Appelle une fonction de succès du QTE chez le gameManager
-                            //_MGR_SoundDesign.Instance.PlaySound("A", gameObject.GetComponent<AudioSource>());
+                            _MGR_SoundDesign.Instance.PlaySound("A", gameObject.GetComponent<AudioSource>());
 
                         }
                         //C'est raté
                         else
                         {
-                            //Appelle une fonction de raté du QTE chez le gameManager
+                            _MGR_SoundDesign.Instance.PlaySound("" + _MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType+"_fail", gameObject.GetComponent<AudioSource>());
 
                         }
                     }
@@ -44,7 +49,7 @@ public class Blacksmith : MonoBehaviour
                     {
                         if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType == InputType.B)
                         {
-                            //_MGR_SoundDesign.Instance.PlaySound("B", gameObject.GetComponent<AudioSource>());
+                            _MGR_SoundDesign.Instance.PlaySound("B", gameObject.GetComponent<AudioSource>());
                         }
                         else
                         {
@@ -55,7 +60,8 @@ public class Blacksmith : MonoBehaviour
                     {
                         if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType == InputType.X)
                         {
-                            //_MGR_SoundDesign.Instance.PlaySound("X", gameObject.GetComponent<AudioSource>());
+                            _MGR_SoundDesign.Instance.PlaySound("X", gameObject.GetComponent<AudioSource>());
+                            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShakin>().shakeDuration = 0.5f;
                         }
                         else
                         {
@@ -66,7 +72,7 @@ public class Blacksmith : MonoBehaviour
                     {
                         if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType == InputType.Y)
                         {
-                            //_MGR_SoundDesign.Instance.PlaySound("Y", gameObject.GetComponent<AudioSource>());
+                            _MGR_SoundDesign.Instance.PlaySound("Y", gameObject.GetComponent<AudioSource>());
                         }
                         else
                         {
