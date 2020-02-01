@@ -12,7 +12,7 @@ public class ItemPatternEditor : Editor
 
         PatternItem patternItem = (PatternItem)target;
 
-        if (patternItem.model != null)
+        if (patternItem.model != null && GUI.changed)
         {
             patternItem.UpdateModel();
         }

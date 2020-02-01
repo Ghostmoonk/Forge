@@ -55,12 +55,12 @@ PrefabInstance:
     - target: {fileID: 5474440821657193649, guid: c483a006eaf803f40994e3548062f8df,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.523
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5474440821657193649, guid: c483a006eaf803f40994e3548062f8df,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.043
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5474440821657193649, guid: c483a006eaf803f40994e3548062f8df,
         type: 3}
@@ -121,6 +121,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7954471660705794982, guid: c483a006eaf803f40994e3548062f8df,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.63
       objectReference: {fileID: 0}
     - target: {fileID: 7954471662026075583, guid: c483a006eaf803f40994e3548062f8df,
         type: 3}
@@ -189,6 +194,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 81b1b83267b785c47915ff83e5deb937,
         type: 2}
+    - target: {fileID: 8881305791933072294, guid: c483a006eaf803f40994e3548062f8df,
+        type: 3}
+      propertyPath: speedInputEventAnim
+      value: 1.3
+      objectReference: {fileID: 0}
     - target: {fileID: 8881305791933072314, guid: c483a006eaf803f40994e3548062f8df,
         type: 3}
       propertyPath: m_Name

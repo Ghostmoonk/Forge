@@ -74,21 +74,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1523141658195810648, guid: bc0654c902f68e84dae8a673787a2ee3,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1523141658195810648, guid: bc0654c902f68e84dae8a673787a2ee3,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1523141658195810648, guid: bc0654c902f68e84dae8a673787a2ee3,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3359496579983950226, guid: bc0654c902f68e84dae8a673787a2ee3,
         type: 3}
       propertyPath: inputType
@@ -294,10 +279,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 2a412f881287f47448626d937b358b7b,
         type: 2}
+    - target: {fileID: 8881305791933072294, guid: c483a006eaf803f40994e3548062f8df,
+        type: 3}
+      propertyPath: speedInputEventAnim
+      value: 1.4
+      objectReference: {fileID: 0}
     - target: {fileID: 8881305791933072314, guid: c483a006eaf803f40994e3548062f8df,
         type: 3}
       propertyPath: m_Name
-      value: ItemPattern-1
+      value: ItemPattern-2-1
       objectReference: {fileID: 0}
     - target: {fileID: 8881305791933072315, guid: c483a006eaf803f40994e3548062f8df,
         type: 3}

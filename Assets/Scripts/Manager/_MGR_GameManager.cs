@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class _MGR_GameManager : MonoBehaviour
 {
-
     #region Components
     [SerializeField] BoxCollider itemTrigger;
     GameObject itemContainer;
+    GameObject tapisContainer;
     #endregion
 
     public float conveyorBeltSpeed;
-    bool canMoveConveyorBelt;
+    [HideInInspector] public bool canMoveConveyorBelt;
 
     private static _MGR_GameManager _instance;
     public static _MGR_GameManager Instance
@@ -44,6 +44,7 @@ public class _MGR_GameManager : MonoBehaviour
         //Génère une queue de tous les items
         queuesPattern = new Queue<PatternItem>();
         itemContainer = GameObject.FindGameObjectWithTag("ItemContainer");
+        tapisContainer = GameObject.FindGameObjectWithTag("TapisContainer");
 
         //On enqueue les premiers items 
         for (int i = 0; i < itemContainer.transform.childCount; i++)
@@ -51,31 +52,21 @@ public class _MGR_GameManager : MonoBehaviour
             queuesPattern.Enqueue(itemContainer.transform.GetChild(i).GetComponent<PatternItem>());
         }
 
-        // //On dequeue le premeir item
-        // if (queuesPattern.Count > 0)
-        // {
-        //     currentPatternItem = queuesPattern.Dequeue();
-        // }
-        //On commence les QTE 1s après le début du jeu
         StartCoroutine(nameof(ConveyorBelt));
-
     }
 
-    public void ChangeItem()
+    public void AddItemPaternInQueue(PatternItem patternItem)
     {
-        if (queuesPattern.Count > 0)
-        {
-            currentPatternItem = queuesPattern.Dequeue();
-        }
-
-        itemContainer.transform.Translate(Vector3.right * 100f);
+        queuesPattern.Enqueue(patternItem);
     }
 
+    #region Tapis roulant
     IEnumerator ConveyorBelt()
     {
         while (canMoveConveyorBelt)
         {
             yield return new WaitForSeconds(0.05f);
+            tapisContainer.transform.position += new Vector3(conveyorBeltSpeed * Time.deltaTime, 0, 0);
             itemContainer.transform.position += new Vector3(conveyorBeltSpeed * Time.deltaTime, 0, 0);
         }
     }
@@ -93,5 +84,5 @@ public class _MGR_GameManager : MonoBehaviour
         currentPatternItem = queuesPattern.Dequeue();
         currentPatternItem.GoNextCurrentInputEvent();
     }
-
+    #endregion
 }

@@ -30,11 +30,13 @@ public class InputEvent : MonoBehaviour
     [SerializeField] Sprite YSprite;
     #endregion
 
-    [HideInInspector] public SucceedableState succeedState;
+    [HideInInspector] public SucceedableState succeedableState;
     public InputType inputType;
     public Sprite sprite;
 
-    [HideInInspector] public UnityEvent endEvent;
+    [Range(0, 2)]
+
+    [HideInInspector] public bool succeed;
 
     public void AdaptButtonSprite()
     {
@@ -59,8 +61,8 @@ public class InputEvent : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        succeedState = SucceedableState.INVISIBLE;
-        endEvent = new UnityEvent();
+        succeedableState = SucceedableState.INVISIBLE;
+        succeed = false;
 
         //transform.LookAt(GameObject.FindGameObjectWithTag("MainCamera").transform);
     }
@@ -68,7 +70,7 @@ public class InputEvent : MonoBehaviour
     //Fonction qui lance l'animation du cercle
     public void PlayAnimation()
     {
-        switch (succeedState)
+        switch (succeedableState)
         {
             case SucceedableState.PENDING:
                 animator.SetTrigger("BecomeSecondInput");
@@ -84,10 +86,9 @@ public class InputEvent : MonoBehaviour
     //Fonction qui vérifie si il est bon
     public bool CheckSucceed(InputType type)
     {
-
-        endEvent.Invoke();
-        if (succeedState == SucceedableState.SUCCEEDABLE && inputType == type)
+        if (succeedableState == SucceedableState.SUCCEEDABLE && inputType == type)
         {
+            succeed = true;
             return true;
         }
         else

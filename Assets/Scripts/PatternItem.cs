@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ItemState { REPAIRED, BROKEN }
+
 public class PatternItem : MonoBehaviour
 {
     #region Components
@@ -14,21 +16,23 @@ public class PatternItem : MonoBehaviour
 
     #endregion
 
+    #region Variables
+    [Range(0, 3)]
+    [SerializeField] float speedInputEventAnim;
     int queueSize;
-    float speedInputEvent;
+    int succeedCount;
+    #endregion
 
-    public enum State { REPAIRED, BROKEN }
-
-    public State state = State.BROKEN;
-
-    [SerializeField] int numberOfInput;
+    #region Etat
+    public ItemState state = ItemState.BROKEN;
+    #endregion
 
     public void UpdateModel()
     {
         meshFilter = GetComponent<MeshFilter>();
         meshRenderer = GetComponent<MeshRenderer>();
 
-        if (state == State.REPAIRED)
+        if (state == ItemState.REPAIRED)
         {
             meshFilter.mesh = model.repairedMesh.sharedMesh;
             GetComponent<MeshRenderer>().sharedMaterials = model.repairedMeshRenderer.sharedMaterials;
@@ -42,6 +46,10 @@ public class PatternItem : MonoBehaviour
 
     void Start()
     {
+        if (speedInputEventAnim <= 0.1f)
+        {
+            speedInputEventAnim = 1f;
+        }
         currentInputEvent = null;
         secondInputEvent = null;
         inputEvents = new Queue<InputEvent>();
@@ -51,6 +59,7 @@ public class PatternItem : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
             inputEvents.Enqueue(transform.GetChild(i).GetComponent<InputEvent>());
+            transform.GetChild(i).GetComponent<Animator>().speed = speedInputEventAnim;
         }
         queueSize = inputEvents.Count;
     }
@@ -58,13 +67,12 @@ public class PatternItem : MonoBehaviour
     // fonction qui se fait appeler par le game manager pour avancer
     public void GoNextCurrentInputEvent()
     {
-        //on définit le current event 
-        if (secondInputEvent == null)
+        if (secondInputEvent == null && inputEvents.Count > 1)
         {
             currentInputEvent = inputEvents.Dequeue();
             secondInputEvent = inputEvents.Dequeue();
         }
-        else
+        else if (secondInputEvent != null)
         {
             currentInputEvent = secondInputEvent;
             if (inputEvents.Count > 0)
@@ -75,19 +83,26 @@ public class PatternItem : MonoBehaviour
             }
         }
         //on lance l'anim du current event
-        currentInputEvent.succeedState = SucceedableState.FAILABLE;
-        currentInputEvent.PlayAnimation();
+        if (currentInputEvent != null)
+        {
+            currentInputEvent.succeedableState = SucceedableState.FAILABLE;
+            currentInputEvent.PlayAnimation();
+        }
 
         if (secondInputEvent != null)
         {
-            secondInputEvent.succeedState = SucceedableState.PENDING;
+            secondInputEvent.succeedableState = SucceedableState.PENDING;
             secondInputEvent.PlayAnimation();
         }
     }
 
-    public void RepairItem()
+    public bool RepairItem()
     {
-        meshFilter.mesh = model.repairedMesh.sharedMesh;
+        if (succeedCount >= (queueSize / 2))
+        {
+            meshFilter.mesh = model.repairedMesh.sharedMesh;
+            return true;
+        }
+        return false;
     }
-
 }

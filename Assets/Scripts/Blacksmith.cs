@@ -13,24 +13,20 @@ public class Blacksmith : MonoBehaviour
     {
         if (_MGR_GameManager.Instance.currentPatternItem != null)
         {
-            Debug.Log("prout");
             if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent != null)
             {
-                Debug.Log("NIQUE");
                 if (Input.GetButtonDown("A") || Input.GetButtonDown("B") || Input.GetButtonDown("X") || Input.GetButtonDown("Y"))
                 {
+                    //Debug.Log("Il reste " + _MGR_GameManager.Instance.currentPatternItem.inputEvents.Count + "dans la queue");
                     gameObject.GetComponent<Animator>().SetTrigger("Forge");
-                    if (_MGR_GameManager.Instance.currentPatternItem.inputEvents.Count == 0)
-                    {
-                        _MGR_GameManager.Instance.MoveConveyorBelt();
-                    }
+
                     if (Input.GetButtonDown("A"))
                     {
                         //Si on a appuyé sur le bon bouton
                         if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.CheckSucceed(InputType.A))
                         {
                             //Appelle une fonction de succès du QTE chez le gameManager
-                            _MGR_SoundDesign.Instance.PlaySound("A", gameObject.GetComponent<AudioSource>());
+                            //_MGR_SoundDesign.Instance.PlaySound("A", gameObject.GetComponent<AudioSource>());
 
                         }
                         //C'est raté
@@ -44,7 +40,7 @@ public class Blacksmith : MonoBehaviour
                     {
                         if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType == InputType.B)
                         {
-                            _MGR_SoundDesign.Instance.PlaySound("B", gameObject.GetComponent<AudioSource>());
+                            //_MGR_SoundDesign.Instance.PlaySound("B", gameObject.GetComponent<AudioSource>());
                         }
                         else
                         {
@@ -55,7 +51,7 @@ public class Blacksmith : MonoBehaviour
                     {
                         if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType == InputType.X)
                         {
-                            _MGR_SoundDesign.Instance.PlaySound("X", gameObject.GetComponent<AudioSource>());
+                            //_MGR_SoundDesign.Instance.PlaySound("X", gameObject.GetComponent<AudioSource>());
                         }
                         else
                         {
@@ -66,15 +62,26 @@ public class Blacksmith : MonoBehaviour
                     {
                         if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType == InputType.Y)
                         {
-                            _MGR_SoundDesign.Instance.PlaySound("Y", gameObject.GetComponent<AudioSource>());
+                            //_MGR_SoundDesign.Instance.PlaySound("Y", gameObject.GetComponent<AudioSource>());
                         }
                         else
                         {
 
                         }
                     }
-                    _MGR_GameManager.Instance.currentPatternItem.GoNextCurrentInputEvent();
-                    //Destroy(_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.gameObject);
+                    if (_MGR_GameManager.Instance.currentPatternItem.inputEvents.Count == 0 && _MGR_GameManager.Instance.currentPatternItem.secondInputEvent == null)
+                    {
+                        if (!_MGR_GameManager.Instance.canMoveConveyorBelt)
+                        {
+                            Debug.Log("Je déplace le tapis");
+                            _MGR_GameManager.Instance.MoveConveyorBelt();
+                        }
+                        _MGR_GameManager.Instance.currentPatternItem.RepairItem();
+                    }
+                    else
+                    {
+                        _MGR_GameManager.Instance.currentPatternItem.GoNextCurrentInputEvent();
+                    }
                 }
             }
             else
