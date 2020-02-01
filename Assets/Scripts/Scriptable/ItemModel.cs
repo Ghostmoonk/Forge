@@ -7,5 +7,6 @@ public class ItemModel : ScriptableObject
 {
     public MeshFilter brokenMesh;
     public MeshFilter repairedMesh;
-    public MeshRenderer meshRenderer;
+    public MeshRenderer brokenMeshRenderer;
+    public MeshRenderer repairedMeshRenderer;
 }

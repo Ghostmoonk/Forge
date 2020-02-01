@@ -16,5 +16,7 @@ MonoBehaviour:
     type: 3}
   repairedMesh: {fileID: -5178661895559278292, guid: 0de536ec06f176d4c840472b74560848,
     type: 3}
-  meshRenderer: {fileID: -1504981713932161579, guid: 0de536ec06f176d4c840472b74560848,
+  brokenMeshRenderer: {fileID: -1504981713932161579, guid: b10ea08c2691b0e4abbbfb4b308506f1,
+    type: 3}
+  repairedMeshRenderer: {fileID: -1504981713932161579, guid: 0de536ec06f176d4c840472b74560848,
     type: 3}

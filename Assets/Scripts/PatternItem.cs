@@ -31,15 +31,13 @@ public class PatternItem : MonoBehaviour
         if (state == State.REPAIRED)
         {
             meshFilter.mesh = model.repairedMesh.sharedMesh;
-
+            GetComponent<MeshRenderer>().sharedMaterials = model.repairedMeshRenderer.sharedMaterials;
         }
         else
         {
             meshFilter.mesh = model.brokenMesh.sharedMesh;
+            GetComponent<MeshRenderer>().sharedMaterials = model.brokenMeshRenderer.sharedMaterials;
         }
-
-        GetComponent<MeshRenderer>().sharedMaterials = model.meshRenderer.sharedMaterials;
-
     }
 
     void Start()

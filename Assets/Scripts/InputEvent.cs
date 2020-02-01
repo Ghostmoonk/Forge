@@ -61,6 +61,8 @@ public class InputEvent : MonoBehaviour
         animator = GetComponent<Animator>();
         succeedState = SucceedableState.INVISIBLE;
         endEvent = new UnityEvent();
+
+        //transform.LookAt(GameObject.FindGameObjectWithTag("MainCamera").transform);
     }
 
     //Fonction qui lance l'animation du cercle
@@ -82,7 +84,6 @@ public class InputEvent : MonoBehaviour
     //Fonction qui vérifie si il est bon
     public bool CheckSucceed(InputType type)
     {
-        //_MGR_GameManager.Instance
 
         endEvent.Invoke();
         if (succeedState == SucceedableState.SUCCEEDABLE && inputType == type)
