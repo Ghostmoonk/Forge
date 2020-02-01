@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public enum SucceedableState
 {
+    INVISIBLE,
     PENDING,
     FAILABLE,
     SUCCEEDABLE
@@ -25,8 +26,7 @@ public class InputEvent : MonoBehaviour
 
     bool isActive;
 
-    UnityEvent endEvent;
-
+    [HideInInspector] public UnityEvent endEvent;
 
     void Start()
     {
@@ -34,6 +34,8 @@ public class InputEvent : MonoBehaviour
         isActive = false;
         succeedState = SucceedableState.PENDING;
         gameObject.SetActive(false);
+
+        endEvent = new UnityEvent();
     }
 
     //Fonction qui lance l'animation du cercle
@@ -47,6 +49,7 @@ public class InputEvent : MonoBehaviour
     public bool CheckSucceed(InputType type)
     {
         //_MGR_GameManager.Instance
+        endEvent.Invoke();
         if (succeedState == SucceedableState.SUCCEEDABLE && inputType == type)
         {
             return true;
