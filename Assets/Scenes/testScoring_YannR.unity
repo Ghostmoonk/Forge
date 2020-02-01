@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 52806022}
   - component: {fileID: 52806021}
   m_Layer: 5
-  m_Name: Text (19)
+  m_Name: GAMESCORElab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -517,7 +517,7 @@ GameObject:
   - component: {fileID: 157324684}
   - component: {fileID: 157324683}
   m_Layer: 5
-  m_Name: Text (3)
+  m_Name: HS3disp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -594,7 +594,7 @@ GameObject:
   - component: {fileID: 288719595}
   - component: {fileID: 288719594}
   m_Layer: 5
-  m_Name: Text (13)
+  m_Name: NEWLOWlab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -727,7 +727,7 @@ GameObject:
   - component: {fileID: 302395706}
   - component: {fileID: 302395705}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Game Over
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -844,7 +844,7 @@ GameObject:
   - component: {fileID: 332820055}
   - component: {fileID: 332820054}
   m_Layer: 5
-  m_Name: Text (18) [b]
+  m_Name: LASTHIGHlab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -921,7 +921,7 @@ GameObject:
   - component: {fileID: 338893364}
   - component: {fileID: 338893363}
   m_Layer: 5
-  m_Name: Text
+  m_Name: HS6disp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -999,7 +999,7 @@ GameObject:
   - component: {fileID: 358340840}
   - component: {fileID: 358340839}
   m_Layer: 5
-  m_Name: Button (7)
+  m_Name: Good Input
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1116,7 +1116,7 @@ GameObject:
   - component: {fileID: 364976836}
   - component: {fileID: 364976835}
   m_Layer: 5
-  m_Name: Text
+  m_Name: HS6lab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1368,7 +1368,7 @@ GameObject:
   - component: {fileID: 458118333}
   - component: {fileID: 458118332}
   m_Layer: 5
-  m_Name: Text (8)
+  m_Name: HS2lab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1599,7 +1599,7 @@ GameObject:
   - component: {fileID: 533442933}
   - component: {fileID: 533442932}
   m_Layer: 5
-  m_Name: Text (12)
+  m_Name: GAMESCORET1disp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1676,7 +1676,7 @@ GameObject:
   - component: {fileID: 545055233}
   - component: {fileID: 545055232}
   m_Layer: 5
-  m_Name: Text (3)
+  m_Name: HS3lab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1753,7 +1753,7 @@ GameObject:
   - component: {fileID: 551250379}
   - component: {fileID: 551250378}
   m_Layer: 5
-  m_Name: Text (17)
+  m_Name: MULTIPLERlab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1830,7 +1830,7 @@ GameObject:
   - component: {fileID: 657954761}
   - component: {fileID: 657954760}
   m_Layer: 5
-  m_Name: Text (5)
+  m_Name: HS9disp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2050,7 +2050,7 @@ GameObject:
   - component: {fileID: 677647570}
   - component: {fileID: 677647569}
   m_Layer: 5
-  m_Name: Text (10)
+  m_Name: INPUTVALdisp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2127,7 +2127,7 @@ GameObject:
   - component: {fileID: 775349810}
   - component: {fileID: 775349809}
   m_Layer: 5
-  m_Name: Text (12)
+  m_Name: GAMESCORET1lab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2204,7 +2204,7 @@ GameObject:
   - component: {fileID: 790211375}
   - component: {fileID: 790211374}
   m_Layer: 5
-  m_Name: Text (8)
+  m_Name: HS2disp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2282,7 +2282,7 @@ GameObject:
   - component: {fileID: 855075021}
   - component: {fileID: 855075020}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Reset High Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2399,7 +2399,7 @@ GameObject:
   - component: {fileID: 872534306}
   - component: {fileID: 872534305}
   m_Layer: 5
-  m_Name: Text (10)
+  m_Name: INPUTVALlab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2476,7 +2476,7 @@ GameObject:
   - component: {fileID: 882789193}
   - component: {fileID: 882789192}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: HS5lab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2553,7 +2553,7 @@ GameObject:
   - component: {fileID: 899763119}
   - component: {fileID: 899763118}
   m_Layer: 5
-  m_Name: Text (4)
+  m_Name: HS10lab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2630,7 +2630,7 @@ GameObject:
   - component: {fileID: 993244082}
   - component: {fileID: 993244081}
   m_Layer: 5
-  m_Name: Text (6)
+  m_Name: HS8disp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2707,7 +2707,7 @@ GameObject:
   - component: {fileID: 1028941324}
   - component: {fileID: 1028941323}
   m_Layer: 5
-  m_Name: Text (11)
+  m_Name: SCOREBUNDLElab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2784,7 +2784,7 @@ GameObject:
   - component: {fileID: 1040971808}
   - component: {fileID: 1040971807}
   m_Layer: 5
-  m_Name: Text (2)
+  m_Name: HS4lab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2861,7 +2861,7 @@ GameObject:
   - component: {fileID: 1062151143}
   - component: {fileID: 1062151142}
   m_Layer: 5
-  m_Name: Text (18) [b]
+  m_Name: LASTHIGHdisp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2939,7 +2939,7 @@ GameObject:
   - component: {fileID: 1104163429}
   - component: {fileID: 1104163428}
   m_Layer: 5
-  m_Name: Button (4)
+  m_Name: Bad Input
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3302,7 +3302,7 @@ GameObject:
   - component: {fileID: 1224731669}
   - component: {fileID: 1224731668}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Score Bundle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3419,7 +3419,7 @@ GameObject:
   - component: {fileID: 1329189157}
   - component: {fileID: 1329189156}
   m_Layer: 5
-  m_Name: Text (5)
+  m_Name: HS9lab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3497,7 +3497,7 @@ GameObject:
   - component: {fileID: 1343411403}
   - component: {fileID: 1343411402}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: Reset Game Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3614,7 +3614,7 @@ GameObject:
   - component: {fileID: 1362662338}
   - component: {fileID: 1362662337}
   m_Layer: 5
-  m_Name: Text (19)
+  m_Name: GAMESCOREdisp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3691,7 +3691,7 @@ GameObject:
   - component: {fileID: 1373995315}
   - component: {fileID: 1373995314}
   m_Layer: 5
-  m_Name: Text (4)
+  m_Name: HS10disp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3851,7 +3851,7 @@ GameObject:
   - component: {fileID: 1444456983}
   - component: {fileID: 1444456982}
   m_Layer: 5
-  m_Name: Text (11)
+  m_Name: SCOREBUNDLEdisp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3929,7 +3929,7 @@ GameObject:
   - component: {fileID: 1461584641}
   - component: {fileID: 1461584640}
   m_Layer: 5
-  m_Name: Button (5)
+  m_Name: Multiplier Randomiser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4046,7 +4046,7 @@ GameObject:
   - component: {fileID: 1463927334}
   - component: {fileID: 1463927333}
   m_Layer: 5
-  m_Name: Text (7)
+  m_Name: HS7lab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4341,7 +4341,7 @@ GameObject:
   - component: {fileID: 1713952302}
   - component: {fileID: 1713952301}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: HS5disp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4418,7 +4418,7 @@ GameObject:
   - component: {fileID: 1719066347}
   - component: {fileID: 1719066346}
   m_Layer: 5
-  m_Name: Text (7)
+  m_Name: HS7disp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4495,7 +4495,7 @@ GameObject:
   - component: {fileID: 1726969709}
   - component: {fileID: 1726969708}
   m_Layer: 5
-  m_Name: Text (13)
+  m_Name: NEWLOWdisp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4649,7 +4649,7 @@ GameObject:
   - component: {fileID: 1773094514}
   - component: {fileID: 1773094513}
   m_Layer: 5
-  m_Name: Text (17)
+  m_Name: MULTIPLIERdisp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4726,7 +4726,7 @@ GameObject:
   - component: {fileID: 1825661354}
   - component: {fileID: 1825661353}
   m_Layer: 5
-  m_Name: Text (2)
+  m_Name: HS4disp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4803,8 +4803,9 @@ GameObject:
   - component: {fileID: 1837457283}
   - component: {fileID: 1837457282}
   - component: {fileID: 1837457281}
+  - component: {fileID: 1837457285}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: yannTestCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4894,6 +4895,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1837457285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837457280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62fa6d8d6cfa50d4c8de638cd9bd66d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ResetHighScoresGO: {fileID: 0}
+  CurrentGameScoreGO: {fileID: 1362662337}
+  InputValueGo: {fileID: 677647567}
 --- !u!1 &1863194541
 GameObject:
   m_ObjectHideFlags: 0
@@ -4983,7 +4999,7 @@ GameObject:
   - component: {fileID: 1886757907}
   - component: {fileID: 1886757906}
   m_Layer: 5
-  m_Name: Text (6)
+  m_Name: HS8lab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5116,7 +5132,7 @@ GameObject:
   - component: {fileID: 1918957683}
   - component: {fileID: 1918957682}
   m_Layer: 5
-  m_Name: Button (6)
+  m_Name: Input
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5162,7 +5178,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 0.8160377, b: 0.8160377, a: 1}
+    m_NormalColor: {r: 0.851491, g: 1, b: 0.8156863, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -5184,7 +5200,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1918957683}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1837457285}
+        m_MethodName: CurrentGameScoreDisp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1918957683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5233,7 +5260,7 @@ GameObject:
   - component: {fileID: 1985854547}
   - component: {fileID: 1985854546}
   m_Layer: 5
-  m_Name: Text (9)
+  m_Name: HS1lab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5387,7 +5414,7 @@ GameObject:
   - component: {fileID: 2116703771}
   - component: {fileID: 2116703770}
   m_Layer: 5
-  m_Name: Text (9)
+  m_Name: HS1disp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
