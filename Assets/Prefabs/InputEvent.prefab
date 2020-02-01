@@ -225,5 +225,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 048cbe79762d6804fbb3e5c67d372106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circleAnimator: {fileID: 636299854720498146}
   succeedState: 0
   inputType: 0
+  endEvent:
+    m_PersistentCalls:
+      m_Calls: []

@@ -4,53 +4,66 @@ using UnityEngine;
 
 public class PatternItem : MonoBehaviour
 {
-    #region Component
-        Queue<InputEvent> InputEvents;
-        InputEvent current;
-        InputEvent second;
-        Color colorSecondInputE;
+    #region Components
+    Mesh mesh;
+    [SerializeField] MeshFilter repairedMesh;
+    [SerializeField] Material[] materials;
+    Queue<InputEvent> inputEvents;
+    [HideInInspector] public InputEvent currentInputEvent;
+    [HideInInspector] public InputEvent secondInputEvent;
+    Color colorSecondInputE;
     #endregion
-    
+
+    int queueSize;
     float speedInputEvent;
-    enum State { Repaired, Broken }
-    State state = State.Broken;
-    
+    enum State { REPAIRED, BROKEN }
+    State state = State.BROKEN;
+
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        currentInputEvent = null;
+        secondInputEvent = null;
+        inputEvents = new Queue<InputEvent>();
+        mesh = GetComponent<MeshFilter>().mesh;
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            inputEvents.Enqueue(transform.GetChild(i).GetComponent<InputEvent>());
+            transform.GetChild(i).GetComponent<InputEvent>().gameObject.SetActive(false);
+        }
+        queueSize = inputEvents.Count;
     }
 
     // fonction qui se fait appeler par le game manager pour avancer
-    void InputEventManagement()
+    public void SwapInputEvents()
     {
         //on définit le current event 
-        if (second == null)
+        if (secondInputEvent == null)
         {
-            current = InputEvents.Dequeue();
-            current.gameObject.SetActive(true);
+            Debug.Log(inputEvents.Count);
+            currentInputEvent = inputEvents.Dequeue();
         }
         else
         {
-            current = second;
-            current.gameObject.GetComponent<SpriteRenderer>().color = colorSecondInputE;
+            currentInputEvent = secondInputEvent;
+            currentInputEvent.gameObject.GetComponent<SpriteRenderer>().color = colorSecondInputE;
         }
+        currentInputEvent.endEvent.AddListener(SwapInputEvents);
         //on lance l'anim du current event
-        current.SetCurrentInputEvent();
+        currentInputEvent.GetCurrentInputEvent();
         //On définit un second InputEvent et on l'active, et on le met avec une animation inisble
-        second = InputEvents.Dequeue();
-        second.gameObject.SetActive(true);
-        second.succeedState = SucceedableState.PENDING;
-        colorSecondInputE = second.gameObject.GetComponent<SpriteRenderer>().color;
-        second.gameObject.GetComponent<SpriteRenderer>().color = new Color(colorSecondInputE.r, colorSecondInputE.g, colorSecondInputE.b, colorSecondInputE.a / 2);
+        secondInputEvent = inputEvents.Dequeue();
+        secondInputEvent.gameObject.SetActive(true);
+        secondInputEvent.succeedState = SucceedableState.PENDING;
+        colorSecondInputE = secondInputEvent.gameObject.GetComponent<SpriteRenderer>().color;
+        secondInputEvent.gameObject.GetComponent<SpriteRenderer>().color = new Color(colorSecondInputE.r, colorSecondInputE.g, colorSecondInputE.b, colorSecondInputE.a / 2);
         //apparemment on lance un AddListener
-        current.endEvent.AddListener(InputEventManagement);
-        Destroy(current.gameObject);
+
+        Destroy(currentInputEvent.gameObject);
+    }
+
+    private void RepairItem()
+    {
+
     }
 }

@@ -13,8 +13,6 @@ public class _MGR_GameManager : MonoBehaviour
         }
     }
 
-    Queue<PatternItem> queuesPattern;
-
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -28,18 +26,46 @@ public class _MGR_GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    [HideInInspector] public InputEvent currentInputEvent;
+    GameObject itemContainer;
+    Queue<PatternItem> queuesPattern;
+    public PatternItem currentPatternItem;
 
     private void Start()
     {
-        currentInputEvent = null;
+        queuesPattern = new Queue<PatternItem>();
+        itemContainer = GameObject.FindGameObjectWithTag("ItemContainer");
+
+        for (int i = 0; i < itemContainer.transform.childCount; i++)
+        {
+            queuesPattern.Enqueue(itemContainer.transform.GetChild(i).GetComponent<PatternItem>());
+        }
+
+        if (queuesPattern.Count > 0)
+        {
+            currentPatternItem = queuesPattern.Dequeue();
+        }
+        StartCoroutine(nameof(WaitBeforeStart));
     }
 
     private void UnfoldQueues()
     {
-        
+
     }
 
+    public void ChangeItem()
+    {
+        if (queuesPattern.Count > 0)
+        {
+            currentPatternItem = queuesPattern.Dequeue();
+        }
 
+        itemContainer.transform.Translate(Vector3.right * 100f);
+    }
 
+    IEnumerator WaitBeforeStart()
+    {
+        yield return new WaitForSeconds(1f);
+        currentPatternItem.SwapInputEvents();
+
+    }
 }
