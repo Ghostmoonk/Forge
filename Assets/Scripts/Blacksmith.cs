@@ -13,10 +13,13 @@ public class Blacksmith : MonoBehaviour
     {
         if (_MGR_GameManager.Instance.currentPatternItem != null)
         {
+            Debug.Log("prout");
             if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent != null)
             {
+                Debug.Log("NIQUE");
                 if (Input.GetButtonDown("A") || Input.GetButtonDown("B") || Input.GetButtonDown("X") || Input.GetButtonDown("Y"))
                 {
+                    gameObject.GetComponent<Animator>().SetTrigger("Forge");
                     if (_MGR_GameManager.Instance.currentPatternItem.inputEvents.Count == 0)
                     {
                         _MGR_GameManager.Instance.MoveConveyorBelt();
