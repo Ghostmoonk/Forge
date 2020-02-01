@@ -7,7 +7,7 @@ public class _MGR_GameManager : MonoBehaviour
     #region Components
     [SerializeField] BoxCollider itemTrigger;
     GameObject itemContainer;
-    GameObject tapisContainer;
+    [HideInInspector] public GameObject tapisContainer;
     #endregion
 
     public float conveyorBeltSpeed;
@@ -67,7 +67,10 @@ public class _MGR_GameManager : MonoBehaviour
         {
             yield return new WaitForSeconds(0.05f);
             tapisContainer.transform.position += new Vector3(conveyorBeltSpeed * Time.deltaTime, 0, 0);
-            itemContainer.transform.position += new Vector3(conveyorBeltSpeed * Time.deltaTime, 0, 0);
+            for (int i = 0; i < itemContainer.transform.childCount; i++)
+            {
+                itemContainer.transform.GetChild(i).transform.position += new Vector3(conveyorBeltSpeed * Time.deltaTime, 0, 0); ;
+            }
         }
     }
 
