@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2976414997182265963}
   - component: {fileID: 4490755568833529486}
-  - component: {fileID: 636299854720498146}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -81,25 +80,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &636299854720498146
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1507478130029105739}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 23317db478e78db4aaeb06eb06c8bcf5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3587637984636286099
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,7 +155,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.76, y: 1.78}
+  m_Size: {x: 1.76, y: 1.76}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -191,6 +171,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1523141658195810648}
   - component: {fileID: 3359496579983950226}
+  - component: {fileID: 5856486424615567048}
+  - component: {fileID: 8190718350481861043}
   m_Layer: 0
   m_Name: InputEvent
   m_TagString: Untagged
@@ -226,10 +208,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 048cbe79762d6804fbb3e5c67d372106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circleAnimator: {fileID: 636299854720498146}
+  animator: {fileID: 0}
   buttonSprite: {fileID: 8019270098733528244}
+  ASprite: {fileID: -860973660773902216, guid: 92c39d65e3c165844a473a131ab6910e, type: 3}
+  BSprite: {fileID: -64746764142580403, guid: 92c39d65e3c165844a473a131ab6910e, type: 3}
+  XSprite: {fileID: -8668186394114051823, guid: 92c39d65e3c165844a473a131ab6910e,
+    type: 3}
+  YSprite: {fileID: -2511121004620330929, guid: 92c39d65e3c165844a473a131ab6910e,
+    type: 3}
   succeedState: 0
-  inputType: 0
+  inputType: 2
+  sprite: {fileID: 0}
   endEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!95 &5856486424615567048
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7210130965007409909}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 23317db478e78db4aaeb06eb06c8bcf5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8190718350481861043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7210130965007409909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ad9a67995b44be48a1fc5523bfff53c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

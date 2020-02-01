@@ -8,7 +8,7 @@ public class InputEventActions : MonoBehaviour
 
     private void Start()
     {
-        inputEvent = transform.parent.GetComponent<InputEvent>();
+        inputEvent = GetComponent<InputEvent>();
     }
     public void ChangeSucceedableState(SucceedableState state)
     {
@@ -19,5 +19,16 @@ public class InputEventActions : MonoBehaviour
     {
         inputEvent.succeedState = SucceedableState.FAILABLE;
         inputEvent.CheckSucceed(InputType.NONE);
+
+        //Il n'y a plus de QTE dans le pattern, on change d'item
+        if (_MGR_GameManager.Instance.currentPatternItem.inputEvents.Count == 0 && _MGR_GameManager.Instance.currentPatternItem.secondInputEvent == null)
+        {
+            _MGR_GameManager.Instance.MoveConveyorBelt();
+        }
+        else
+        {
+            _MGR_GameManager.Instance.currentPatternItem.GoNextCurrentInputEvent();
+        }
+        //Destroy(_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.gameObject);
     }
 }

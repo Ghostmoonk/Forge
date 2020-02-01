@@ -5,13 +5,14 @@ using UnityEngine;
 public class PatternItem : MonoBehaviour
 {
     #region Components
-    Mesh mesh;
-    [SerializeField] MeshFilter repairedMesh;
-    [SerializeField] Material[] materials;
-    Queue<InputEvent> inputEvents;
+    public ItemModel model;
+    MeshFilter meshFilter;
+    MeshRenderer meshRenderer;
+    public Queue<InputEvent> inputEvents;
     [HideInInspector] public InputEvent currentInputEvent;
     [HideInInspector] public InputEvent secondInputEvent;
     Color colorSecondInputE;
+
     #endregion
 
     int queueSize;
@@ -19,23 +20,37 @@ public class PatternItem : MonoBehaviour
     enum State { REPAIRED, BROKEN }
     State state = State.BROKEN;
 
+    public void UpdateModel()
+    {
+        meshFilter = GetComponent<MeshFilter>();
+        meshRenderer = GetComponent<MeshRenderer>();
+
+        Debug.Log("Update bien le model");
+        meshFilter.mesh = model.brokenMesh.sharedMesh;
+
+        System.Array.Reverse(model.meshRenderer.sharedMaterials);
+        meshRenderer.sharedMaterials = model.meshRenderer.sharedMaterials;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         currentInputEvent = null;
         secondInputEvent = null;
         inputEvents = new Queue<InputEvent>();
-        mesh = GetComponent<MeshFilter>().mesh;
+        meshFilter = GetComponent<MeshFilter>();
+        meshRenderer = GetComponent<MeshRenderer>();
+        meshFilter.mesh = model.brokenMesh.sharedMesh;
+        meshRenderer.sharedMaterials = model.meshRenderer.sharedMaterials;
         for (int i = 0; i < transform.childCount; i++)
         {
             inputEvents.Enqueue(transform.GetChild(i).GetComponent<InputEvent>());
-            //transform.GetChild(i).GetComponent<InputEvent>().gameObject.SetActive(false);
         }
         queueSize = inputEvents.Count;
     }
 
     // fonction qui se fait appeler par le game manager pour avancer
-    public void SetCurrentInputEvent()
+    public void GoNextCurrentInputEvent()
     {
         //on définit le current event 
         if (secondInputEvent == null)
@@ -46,26 +61,27 @@ public class PatternItem : MonoBehaviour
         else
         {
             currentInputEvent = secondInputEvent;
-            currentInputEvent.gameObject.GetComponent<SpriteRenderer>().color = colorSecondInputE;
             if (inputEvents.Count > 0)
                 secondInputEvent = inputEvents.Dequeue();
-
+            else
+            {
+                secondInputEvent = null;
+            }
         }
         //on lance l'anim du current event
-        currentInputEvent.PlayCircleAnimation();
-        secondInputEvent.succeedState = SucceedableState.PENDING;
-        //currentInputEvent.endEvent.AddListener(SwapInputEvents);
-        //On définit un second InputEvent et on l'active, et on le met avec une animation inisble
+        currentInputEvent.succeedState = SucceedableState.FAILABLE;
+        currentInputEvent.PlayAnimation();
 
-        colorSecondInputE = secondInputEvent.buttonSprite.color;
-        secondInputEvent.buttonSprite.color = new Color(colorSecondInputE.r, colorSecondInputE.g, colorSecondInputE.b, colorSecondInputE.a / 2);
-        //apparemment on lance un AddListener
-
-        //Destroy(currentInputEvent.gameObject);
+        if (secondInputEvent != null)
+        {
+            secondInputEvent.succeedState = SucceedableState.PENDING;
+            secondInputEvent.PlayAnimation();
+        }
     }
 
-    private void RepairItem()
+    public void RepairItem()
     {
-
+        meshFilter.mesh = model.repairedMesh.sharedMesh;
     }
+
 }

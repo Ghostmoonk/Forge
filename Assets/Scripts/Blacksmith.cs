@@ -15,61 +15,67 @@ public class Blacksmith : MonoBehaviour
         {
             if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent != null)
             {
-                Debug.Log(_MGR_GameManager.Instance.currentPatternItem.currentInputEvent);
-                if (Input.GetButtonDown("A"))
+                if (Input.GetButtonDown("A") || Input.GetButtonDown("B") || Input.GetButtonDown("X") || Input.GetButtonDown("Y"))
                 {
-                    Debug.Log("A pressed");
-                    //Si on a appuyé sur le bon bouton
-                    if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType == InputType.A)
+                    if (_MGR_GameManager.Instance.currentPatternItem.inputEvents.Count == 0)
                     {
-                        //Appelle une fonction de succès du QTE chez le gameManager
-                        Debug.Log("Call success function QTE");
+                        _MGR_GameManager.Instance.MoveConveyorBelt();
                     }
-                    //C'est raté
-                    else
+                    if (Input.GetButtonDown("A"))
                     {
-                        //Appelle une fonction de raté du QTE chez le gameManager
-                    }
-                }
-                if (Input.GetButtonDown("B"))
-                {
-                    Debug.Log("B pressed");
-                    if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType == InputType.B)
-                    {
+                        //Si on a appuyé sur le bon bouton
+                        if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.CheckSucceed(InputType.A))
+                        {
+                            //Appelle une fonction de succès du QTE chez le gameManager
 
-                    }
-                    else
-                    {
+                        }
+                        //C'est raté
+                        else
+                        {
+                            //Appelle une fonction de raté du QTE chez le gameManager
 
+                        }
                     }
-                }
-                if (Input.GetButtonDown("X"))
-                {
-                    Debug.Log("X pressed");
-                    if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType == InputType.X)
+                    if (Input.GetButtonDown("B"))
                     {
+                        if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType == InputType.B)
+                        {
 
+                        }
+                        else
+                        {
+
+                        }
                     }
-                    else
+                    if (Input.GetButtonDown("X"))
                     {
+                        if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType == InputType.X)
+                        {
 
+                        }
+                        else
+                        {
+
+                        }
                     }
-                }
-                if (Input.GetButtonDown("Y"))
-                {
-                    if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType == InputType.Y)
+                    if (Input.GetButtonDown("Y"))
                     {
+                        if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType == InputType.Y)
+                        {
 
-                    }
-                    else
-                    {
+                        }
+                        else
+                        {
 
+                        }
                     }
+                    _MGR_GameManager.Instance.currentPatternItem.GoNextCurrentInputEvent();
+                    //Destroy(_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.gameObject);
                 }
             }
             else
             {
-                Debug.Log("Pas encore de pattern actif");
+                Debug.Log("Pas encore de current input event actif");
             }
         }
         else
@@ -77,5 +83,4 @@ public class Blacksmith : MonoBehaviour
             //Debug.Log("Pas de current input");
         }
     }
-
 }

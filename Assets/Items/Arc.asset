@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7614505a1a0636240b4983f27e494d0a, type: 3}
+  m_Name: Arc
+  m_EditorClassIdentifier: 
+  brokenMesh: {fileID: -5178661895559278292, guid: b10ea08c2691b0e4abbbfb4b308506f1,
+    type: 3}
+  repairedMesh: {fileID: -5178661895559278292, guid: 0de536ec06f176d4c840472b74560848,
+    type: 3}
+  meshRenderer: {fileID: -1504981713932161579, guid: 0de536ec06f176d4c840472b74560848,
+    type: 3}

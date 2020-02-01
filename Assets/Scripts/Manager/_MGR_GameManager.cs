@@ -11,6 +11,7 @@ public class _MGR_GameManager : MonoBehaviour
     #endregion
 
     public float conveyorBeltSpeed;
+    bool canMoveConveyorBelt;
 
     private static _MGR_GameManager _instance;
     public static _MGR_GameManager Instance
@@ -39,6 +40,7 @@ public class _MGR_GameManager : MonoBehaviour
 
     private void Start()
     {
+        canMoveConveyorBelt = true;
         //Génère une queue de tous les items
         queuesPattern = new Queue<PatternItem>();
         itemContainer = GameObject.FindGameObjectWithTag("ItemContainer");
@@ -69,25 +71,27 @@ public class _MGR_GameManager : MonoBehaviour
         itemContainer.transform.Translate(Vector3.right * 100f);
     }
 
-    IEnumerator WaitBeforeStart()
-    {
-        yield return new WaitForSeconds(1f);
-        currentPatternItem.SetCurrentInputEvent();
-
-    }
     IEnumerator ConveyorBelt()
     {
-        while (true)
+        while (canMoveConveyorBelt)
         {
             yield return new WaitForSeconds(0.05f);
-            itemContainer.transform.Translate(Vector3.right * Time.deltaTime * conveyorBeltSpeed);
+            itemContainer.transform.position += new Vector3(conveyorBeltSpeed * Time.deltaTime, 0, 0);
         }
+    }
+
+    public void MoveConveyorBelt()
+    {
+        canMoveConveyorBelt = true;
+        StartCoroutine(ConveyorBelt());
     }
 
     public void StopConveyorBelt()
     {
         StopCoroutine(ConveyorBelt());
+        canMoveConveyorBelt = false;
         currentPatternItem = queuesPattern.Dequeue();
+        currentPatternItem.GoNextCurrentInputEvent();
     }
 
 }
