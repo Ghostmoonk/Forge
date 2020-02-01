@@ -30,6 +30,8 @@ public class _MGR_ScoreManager : MonoBehaviour
         {
             HSobj[i].text = "0";
             HSint[i] = 0;
+            LastHighGO.text = "0";
+            HighlighterGO.text = "0";
         }
     }
 
@@ -38,11 +40,9 @@ public class _MGR_ScoreManager : MonoBehaviour
         CurrentGameScoreGO.text = "0";
         CurrentGameScoreT1GO.text = "0";
         CurrentGameScore = 0;
-        HighlighterGO.text = "0";
         InputValueGO.text = "0";
         ScoreBundleGO.text = "0";
         MultiplierGO.text = "0";
-        LastHighGO.text = "0";
     }
 
     public void GoodInput() { DiffertentInputs(2); }
