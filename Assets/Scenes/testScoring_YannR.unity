@@ -1045,7 +1045,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 0.8160377, b: 0.8160377, a: 1}
+    m_NormalColor: {r: 0.8156863, g: 1, b: 0.862419, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1067,7 +1067,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 358340840}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1837457285}
+        m_MethodName: GoodInput
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &358340840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2996,7 +3007,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 0.8160377, b: 0.8160377, a: 1}
+    m_NormalColor: {r: 0.8156863, g: 1, b: 0.82971805, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -3018,7 +3029,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1104163429}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1837457285}
+        m_MethodName: BadInput
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1104163429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3997,7 +4019,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 0.8160377, b: 0.8160377, a: 1}
+    m_NormalColor: {r: 0.99368846, g: 1, b: 0.8156863, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -4019,7 +4041,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1461584641}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1837457285}
+        m_MethodName: TestButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1461584641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4930,7 +4963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentGameScoreGO: {fileID: 1362662337}
-  InputValueGO: {fileID: 0}
+  InputValueGO: {fileID: 677647567}
   HSobj:
   - {fileID: 2116703770}
   - {fileID: 790211374}
@@ -4943,6 +4976,10 @@ MonoBehaviour:
   - {fileID: 657954760}
   - {fileID: 1373995314}
   - {fileID: 1726969708}
+  LastHighGO: {fileID: 1062151142}
+  CurrentGameScoreT1GO: {fileID: 533442932}
+  ScoreBundleGO: {fileID: 1444456982}
+  MultiplierGO: {fileID: 1773094513}
 --- !u!1 &1863194541
 GameObject:
   m_ObjectHideFlags: 0
@@ -5211,7 +5248,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 0.9964245, b: 0.8156863, a: 1}
+    m_NormalColor: {r: 0.8203312, g: 1, b: 0.8156863, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -5235,7 +5272,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1837457285}
-        m_MethodName: CurrentGameScoreDisp
+        m_MethodName: RandomInput
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

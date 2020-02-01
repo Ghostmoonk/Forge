@@ -9,14 +9,18 @@ public class _MGR_ScoreManager : MonoBehaviour
 
     public Text CurrentGameScoreGO;
     public GameObject InputValueGO;
+    public Text[] HSobj = new Text[11];
+    public Text LastHighGO;
+    public Text CurrentGameScoreT1GO;
+    public Text ScoreBundleGO;
+    public Text MultiplierGO;
+    
 
-    public void CurrentGameScoreDisp()
+    public void TestButton()
     {
         CurrentGameScoreGO.text = "2";
         InputValueGO.GetComponent<Text>().text = "yaas";
     }
-
-    public Text[] HSobj = new Text[11];
 
     public void resethighscores()
     {
@@ -30,13 +34,24 @@ public class _MGR_ScoreManager : MonoBehaviour
     {
         CurrentGameScoreGO.text = "0";
     }
-    
-    public static int[] definedscoringbundle(int scorebundle)
+
+    public void GoodInput()  { DiffertentInputs(2); }
+    public void BadInput() { DiffertentInputs(1); }
+    public void RandomInput() { DiffertentInputs(0); }
+
+    public int[] DiffertentInputs(int mode)
     {
+        int inputValue = Random.Range(1, 10);
+        int multiplier = Random.Range(1, 10);
+        if (mode == 2) inputValue = 10;
+        if (mode == 1) inputValue = 1;
+        InputValueGO.GetComponent<Text>().text = inputValue.ToString();
+        MultiplierGO.text = multiplier.ToString();
+
         int[] oldandnewgamescore = new int[2];
-        oldandnewgamescore[0] = currentgamescore;
-        oldandnewgamescore[1] = currentgamescore + scorebundle;
-        currentgamescore = oldandnewgamescore[1];
+        //oldandnewgamescore[0] = currentgamescore;
+        //oldandnewgamescore[1] = currentgamescore + scorebundle;
+        //currentgamescore = oldandnewgamescore[1];
         return oldandnewgamescore;
     }
 
