@@ -1,12 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum SucceedableState
 {
+    INVISIBLE,
     PENDING,
     FAILABLE,
     SUCCEEDABLE
+}
+
+public enum InputType
+{
+    A, B, X, Y
 }
 
 public class InputEvent : MonoBehaviour
@@ -15,9 +22,11 @@ public class InputEvent : MonoBehaviour
     Animator circleAnimator;
     #endregion
     [HideInInspector] public SucceedableState succeedState;
+    public InputType inputType;
 
     bool isActive;
 
+    [HideInInspector] public UnityEvent endEvent;
 
     void Start()
     {
@@ -25,17 +34,30 @@ public class InputEvent : MonoBehaviour
         isActive = false;
         succeedState = SucceedableState.PENDING;
         gameObject.SetActive(false);
+
+        endEvent = new UnityEvent();
     }
 
     //Fonction qui lance l'animation du cercle
-    public void PlayCircleAnimation()
+    public InputEvent SetCurrentInputEvent()
     {
         circleAnimator.SetTrigger("BecomeCurrentInput");
+        return this;
     }
+
     //Fonction qui vérifie si il est bon
-    public bool CheckSucceed()
+    public bool CheckSucceed(InputType type)
     {
-        return true;
+        //_MGR_GameManager.Instance
+        endEvent.Invoke();
+        if (succeedState == SucceedableState.SUCCEEDABLE && inputType == type)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }
