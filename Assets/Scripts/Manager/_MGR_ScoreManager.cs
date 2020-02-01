@@ -6,11 +6,11 @@ public class MGR_ScoreManager : MonoBehaviour
 {
     //GameScore Display
     //Game Score is kept here
-    public int gameScore;
+    public static int gameScore;
 
     //HighScores Display
     //High Score are kept here
-    public int[] HighScores = new int[11];
+    public static int[] HighScores = new int[11];
 
     //GameLaunch Trigger
     //Resets all HighScores to 0
@@ -38,8 +38,8 @@ public class MGR_ScoreManager : MonoBehaviour
     public static int[] ScoringBundle(int scoring)
     {
         int[] increaseScore = new int[2];
-        increaseScore.add(gameScore);
-        increaseScore.add(gameScore + scoring);
+        increaseScore.[0]=gameScore;
+        increaseScore.[1]=gameScore + scoring;
         gameScore = increaseScore[1];
         return increaseScore;
     }
