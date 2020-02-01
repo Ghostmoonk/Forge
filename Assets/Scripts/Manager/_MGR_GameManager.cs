@@ -13,6 +13,8 @@ public class _MGR_GameManager : MonoBehaviour
         }
     }
 
+    Queue<PatternItem> queuesPattern;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -32,5 +34,12 @@ public class _MGR_GameManager : MonoBehaviour
     {
         currentInputEvent = null;
     }
+
+    private void UnfoldQueues()
+    {
+        
+    }
+
+
 
 }

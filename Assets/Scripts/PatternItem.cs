@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class PatternItem : MonoBehaviour
 {
-    class InputEvent
-    {
-        public string name;
-    }
-    InputEvent[] InputEvents;
+    #region Component
+        Queue<InputEvent> InputEvents;
+        InputEvent current;
+        InputEvent second;
+        Color colorSecondInputE;
+    #endregion
+    
     float speedInputEvent;
     enum State { Repaired, Broken }
     State state = State.Broken;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,17 +27,30 @@ public class PatternItem : MonoBehaviour
         
     }
 
+    // fonction qui se fait appeler par le game manager pour avancer
     void InputEventManagement()
     {
-        for (int i = 0; InputEvents.Length >= i; i++)
+        //on définit le current event 
+        if (second == null)
         {
-            //InputEvents[i].fonctionquilanceleqte
-            if (InputEvents[i + 1] != null)
-            {
-                //InputEvents[i + 1].SetActive(true);
-                //InputEvents[i + 1].name = "Opacity = 30%";
-            }
-
+            current = InputEvents.Dequeue();
+            current.gameObject.SetActive(true);
         }
+        else
+        {
+            current = second;
+            current.gameObject.GetComponent<SpriteRenderer>().color = colorSecondInputE;
+        }
+        //on lance l'anim du current event
+        current.SetCurrentInputEvent();
+        //On définit un second InputEvent et on l'active, et on le met avec une animation inisble
+        second = InputEvents.Dequeue();
+        second.gameObject.SetActive(true);
+        second.succeedState = SucceedableState.PENDING;
+        colorSecondInputE = second.gameObject.GetComponent<SpriteRenderer>().color;
+        second.gameObject.GetComponent<SpriteRenderer>().color = new Color(colorSecondInputE.r, colorSecondInputE.g, colorSecondInputE.b, colorSecondInputE.a / 2);
+        //apparemment on lance un AddListener
+        current.endEvent.AddListener(InputEventManagement);
+        Destroy(current.gameObject);
     }
 }
