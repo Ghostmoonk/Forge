@@ -15,7 +15,14 @@ public class ItemProvider : MonoBehaviour
     GameObject[] normalPatternPrefabs;
     GameObject[] hardPatternPrefabs;
 
+    GameObject itemsContainer;
+
     float offsetBetweenItems;
+
+    private void Start()
+    {
+        itemsContainer = GameObject.FindGameObjectWithTag("ItemContainer");
+    }
 
     public void InstantiateItem(PatternDifficulty difficulty)
     {
@@ -24,6 +31,7 @@ public class ItemProvider : MonoBehaviour
         {
             case PatternDifficulty.EASY:
                 patternToInstantiate = Instantiate(easyPatternPrefabs[Random.Range(0, easyPatternPrefabs.Length - 1)]);
+                patternToInstantiate.transform.parent = itemsContainer.transform;
                 _MGR_GameManager.Instance.AddItemPaternInQueue(patternToInstantiate.GetComponent<PatternItem>());
                 break;
             case PatternDifficulty.NORMAL:
