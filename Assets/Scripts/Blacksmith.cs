@@ -8,7 +8,11 @@ public class Blacksmith : MonoBehaviour
     Animator animator;
     SpriteRenderer spriteRenderer;
     #endregion
-
+    public void PlayASound()
+    {
+        Debug.Log("" + _MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType);
+        _MGR_SoundDesign.Instance.PlaySound("" + _MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType, gameObject.GetComponent<AudioSource>());
+    }
     private void Update()
     {
         if (_MGR_GameManager.Instance.currentPatternItem != null)
