@@ -18,6 +18,6 @@ public class InputEventActions : MonoBehaviour
     public void EndCircleAnim()
     {
         inputEvent.succeedState = SucceedableState.FAILABLE;
-        //Apelle fail chez game
+        inputEvent.CheckSucceed(InputType.NONE);
     }
 }
