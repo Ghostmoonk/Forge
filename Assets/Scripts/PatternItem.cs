@@ -40,8 +40,8 @@ public class PatternItem : MonoBehaviour
         //on définit le current event 
         if (secondInputEvent == null)
         {
-            Debug.Log(inputEvents.Count);
             currentInputEvent = inputEvents.Dequeue();
+            Debug.Log(currentInputEvent);
         }
         else
         {
@@ -55,8 +55,8 @@ public class PatternItem : MonoBehaviour
         secondInputEvent = inputEvents.Dequeue();
         secondInputEvent.gameObject.SetActive(true);
         secondInputEvent.succeedState = SucceedableState.PENDING;
-        colorSecondInputE = secondInputEvent.gameObject.GetComponent<SpriteRenderer>().color;
-        secondInputEvent.gameObject.GetComponent<SpriteRenderer>().color = new Color(colorSecondInputE.r, colorSecondInputE.g, colorSecondInputE.b, colorSecondInputE.a / 2);
+        colorSecondInputE = secondInputEvent.buttonSprite.color;
+        secondInputEvent.buttonSprite.color = new Color(colorSecondInputE.r, colorSecondInputE.g, colorSecondInputE.b, colorSecondInputE.a / 2);
         //apparemment on lance un AddListener
 
         Destroy(currentInputEvent.gameObject);

@@ -32,18 +32,22 @@ public class _MGR_GameManager : MonoBehaviour
 
     private void Start()
     {
+        //Génère une queue de tous les items
         queuesPattern = new Queue<PatternItem>();
         itemContainer = GameObject.FindGameObjectWithTag("ItemContainer");
 
+        //On enqueue les premiers items 
         for (int i = 0; i < itemContainer.transform.childCount; i++)
         {
             queuesPattern.Enqueue(itemContainer.transform.GetChild(i).GetComponent<PatternItem>());
         }
 
+        //On dequeue le premeir item
         if (queuesPattern.Count > 0)
         {
             currentPatternItem = queuesPattern.Dequeue();
         }
+        //On commence les QTE 1s après le début du jeu
         StartCoroutine(nameof(WaitBeforeStart));
     }
 
