@@ -1,14 +1,8 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Sprites/HUD.meta
-guid: 13165fe7e823c784790d9281e0cd4f21
-folderAsset: yes
-DefaultImporter:
-=======
-guid: ab328874fc0ada64a8887367bba7e2fb
+guid: daed8963c6a1d0545954cd3233c5f6c9
 NativeFormatImporter:
->>>>>>> f04ccc93ce4479228418c9654e9b3591b1556a7c:Assets/Models/Materials/emission.mat.meta
   externalObjects: {}
-  mainObjectFileID: 2100000
+  mainObjectFileID: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
