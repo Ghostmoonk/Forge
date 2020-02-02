@@ -11,5 +11,4 @@ public class MenuBrowser : MonoBehaviour
     {
         menuButtons[0].Select();
     }
-
 }

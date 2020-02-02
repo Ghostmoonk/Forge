@@ -12,6 +12,8 @@ TagManager:
   - SceneFader
   - SpawnScorePopUp
   - ScorePopUpContainer
+  - BackButton
+  - PlayButton
   layers:
   - Default
   - TransparentFX
