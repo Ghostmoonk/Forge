@@ -7,15 +7,27 @@ public class Blacksmith : MonoBehaviour
     #region Components
     Animator animator;
     SpriteRenderer spriteRenderer;
+    [SerializeField] ParticleSystem Sparks;
     #endregion
 
 
-    public void PlayASound()
+
+
+    public void vibrationStop()
+    {
+        XInputDotNetPure.GamePad.SetVibration(0, 0.0f, 0.0f);
+    }
+    public void CameraShaking()
     {
         Debug.Log("" + _MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType);
         Debug.Log("DEbug avant" + GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShakin>().shakeDuration);
-        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShakin>().shakeDuration = 1f;
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShakin>().shakeDuration = 0.4f;
         Debug.Log("Debug après" + GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShakin>().shakeDuration);
+        XInputDotNetPure.GamePad.SetVibration(0, 20.0f, 20.0f);
+        Invoke("vibrationStop", 0.3f);
+
+
+        Sparks.Play();
         //_MGR_SoundDesign.Instance.PlaySound("" + _MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType, gameObject.GetComponent<AudioSource>());
     }
     private void Update()
@@ -35,7 +47,7 @@ public class Blacksmith : MonoBehaviour
                         if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.CheckSucceed(InputType.A))
                         {
                             //Appelle une fonction de succès du QTE chez le gameManager
-                            //_MGR_SoundDesign.Instance.PlaySound("A", gameObject.GetComponent<AudioSource>());
+                            _MGR_SoundDesign.Instance.PlaySound("A", gameObject.GetComponent<AudioSource>());
                             Debug.Log("REUSSI A");
                             Debug.Log(_MGR_GameManager.Instance.currentPatternItem.succeedCount);
                             _MGR_GameManager.Instance.currentPatternItem.succeedCount++;
@@ -43,7 +55,7 @@ public class Blacksmith : MonoBehaviour
                         //C'est raté
                         else
                         {
-                            //_MGR_SoundDesign.Instance.PlaySound("" + _MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType + "_fail", gameObject.GetComponent<AudioSource>());
+                            _MGR_SoundDesign.Instance.PlaySound("" + _MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType + "_fail", gameObject.GetComponent<AudioSource>());
 
                         }
                     }
@@ -51,13 +63,13 @@ public class Blacksmith : MonoBehaviour
                     {
                         if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType == InputType.B)
                         {
-                            //_MGR_SoundDesign.Instance.PlaySound("B", gameObject.GetComponent<AudioSource>());
+                            _MGR_SoundDesign.Instance.PlaySound("B", gameObject.GetComponent<AudioSource>());
                             Debug.Log("REUSSI B");
                             _MGR_GameManager.Instance.currentPatternItem.succeedCount++;
                         }
                         else
                         {
-
+                            _MGR_SoundDesign.Instance.PlaySound("" + _MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType + "_fail", gameObject.GetComponent<AudioSource>());
                         }
                     }
                     if (Input.GetButtonDown("X"))
@@ -71,7 +83,7 @@ public class Blacksmith : MonoBehaviour
                         }
                         else
                         {
-
+                            _MGR_SoundDesign.Instance.PlaySound("" + _MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType + "_fail", gameObject.GetComponent<AudioSource>());
                         }
                     }
                     if (Input.GetButtonDown("Y"))
@@ -84,7 +96,7 @@ public class Blacksmith : MonoBehaviour
                         }
                         else
                         {
-
+                            _MGR_SoundDesign.Instance.PlaySound("" + _MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType + "_fail", gameObject.GetComponent<AudioSource>());
                         }
                     }
                     if (_MGR_GameManager.Instance.currentPatternItem.inputEvents.Count == 0 && _MGR_GameManager.Instance.currentPatternItem.secondInputEvent == null)
