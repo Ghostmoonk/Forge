@@ -28,13 +28,17 @@ public class _MGR_SceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+<<<<<<< HEAD
          = GameObject.Find("FonctionUI").GetComponent<UIFonction>().panel;
+=======
+
+>>>>>>> cf98767b30f31893e0c0ce1401a577efc930d354
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void LoadScene(string __nom_scene)

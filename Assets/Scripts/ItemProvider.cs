@@ -9,6 +9,8 @@ public enum PatternDifficulty
 
 public class ItemProvider : MonoBehaviour
 {
+    bool hasCalledEndgame;
+
     public int maxItemsInQueue;
     public int totalItemsInLevel;
     public int remainingItemsInLevel;
@@ -23,19 +25,32 @@ public class ItemProvider : MonoBehaviour
 
     private void Start()
     {
+        hasCalledEndgame = false;
         itemsContainer = GameObject.FindGameObjectWithTag("ItemContainer");
         remainingItemsInLevel = totalItemsInLevel - itemsContainer.transform.childCount;
     }
 
     private void Update()
     {
-        if (Mathf.Abs(spawnPosition.transform.position.x - itemsContainer.transform.GetChild(itemsContainer.transform.childCount - 1).transform.position.x) > offsetBetweenItems)
+        if (itemsContainer.transform.childCount > 0)
         {
-            if (remainingItemsInLevel > 0)
+            if (Mathf.Abs(spawnPosition.transform.position.x - itemsContainer.transform.GetChild(itemsContainer.transform.childCount - 1).transform.position.x) > offsetBetweenItems)
             {
-                //Debug.Log("I must intantiate !");
-                InstantiateItem(PickRandomDifficulty());
-                remainingItemsInLevel--;
+                if (remainingItemsInLevel > 0)
+                {
+                    //Debug.Log("I must intantiate !");
+                    InstantiateItem(PickRandomDifficulty());
+                    remainingItemsInLevel--;
+                }
+            }
+        }
+        else
+        {
+            if (itemsContainer.transform.childCount == 0 && !hasCalledEndgame)
+            {
+                Debug.Log("EndGame");
+                hasCalledEndgame = true;
+                _MGR_GameManager.Instance.EndGame();
             }
         }
     }
