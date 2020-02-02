@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -122,3 +123,6 @@ public class _MGR_ScoreManager : MonoBehaviour
         resetgamescore();
     }
 }
+=======
+﻿
+>>>>>>> f04ccc93ce4479228418c9654e9b3591b1556a7c
