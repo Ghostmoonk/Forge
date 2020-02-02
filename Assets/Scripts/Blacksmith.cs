@@ -17,6 +17,10 @@ public class Blacksmith : MonoBehaviour
     {
         XInputDotNetPure.GamePad.SetVibration(0, 0.0f, 0.0f);
     }
+    public void SetVoidSound()
+    {
+        gameObject.GetComponent<AudioSource>().clip = null;
+    }
     public void CameraShaking()
     {
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShakin>().shakeDuration = 0.4f;

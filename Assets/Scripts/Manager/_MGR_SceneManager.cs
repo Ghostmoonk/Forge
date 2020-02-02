@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class _MGR_SceneManager : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class _MGR_SceneManager : MonoBehaviour
     public static _MGR_SceneManager Instance { get { return p_instance; } }
 
     public string[] arr_SceneName;
-    GameObject panel
+
 
     void Awake()
     {
@@ -28,11 +29,7 @@ public class _MGR_SceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-<<<<<<< HEAD
-         = GameObject.Find("FonctionUI").GetComponent<UIFonction>().panel;
-=======
 
->>>>>>> cf98767b30f31893e0c0ce1401a577efc930d354
     }
 
     // Update is called once per frame
@@ -49,7 +46,19 @@ public class _MGR_SceneManager : MonoBehaviour
     public void LoadEndScene(string __nom_scene)
     {
         SceneManager.LoadScene(__nom_scene);
-        
+        StartCoroutine(WaitForLoad());
+    }
+
+    IEnumerator WaitForLoad()
+    {
+        yield return new WaitForSeconds(0.1f);
+        GameObject panel = GameObject.Find("FonctionUI").GetComponent<UIFonction>().panel;
         panel.SetActive(true);
+        _MGR_ScoreManager.Instance.yourScore = GameObject.Find("YourScore").GetComponent<Text>();
+        for (int i = 0; i < _MGR_ScoreManager.Instance.highScore.Length; i++)
+        {
+            _MGR_ScoreManager.Instance.highScore[i] = GameObject.Find("HighScores").transform.GetChild(i).transform.GetChild(0).GetComponent<Text>();
+        }
+        _MGR_ScoreManager.Instance.gameover();
     }
 }

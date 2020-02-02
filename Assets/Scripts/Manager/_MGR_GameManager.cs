@@ -32,7 +32,7 @@ public class _MGR_GameManager : MonoBehaviour
         {
             _instance = this;
         }
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
     Queue<PatternItem> queuesPattern;
