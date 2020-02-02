@@ -11177,7 +11177,66 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemTrigger: {fileID: 0}
   tapisContainer: {fileID: 0}
-  conveyorBeltSpeed: 2
+  conveyorBeltSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: -0.71499634
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 12.685419
+      value: 4.8702493
+      inSlope: -0.06430854
+      outSlope: -0.06430854
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 38.855904
+      value: 3.9474154
+      inSlope: 0.6923881
+      outSlope: 0.6923881
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.16415232
+    - serializedVersion: 3
+      time: 66.24705
+      value: 4.5726438
+      inSlope: 3.9868286
+      outSlope: 3.9868286
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.13830224
+    - serializedVersion: 3
+      time: 73.56674
+      value: 4.9814234
+      inSlope: 0.64195645
+      outSlope: 0.64195645
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 99.32895
+      value: 4.3640823
+      inSlope: 2.0976827
+      outSlope: 2.0976827
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.2325909
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   canMoveConveyorBelt: 0
   currentPatternItem: {fileID: 0}
 --- !u!4 &776412881

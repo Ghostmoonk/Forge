@@ -10,7 +10,7 @@ public class _MGR_GameManager : MonoBehaviour
     [HideInInspector] public GameObject tapisContainer;
     #endregion
 
-    public float conveyorBeltSpeed;
+    public AnimationCurve conveyorBeltSpeed;
     [HideInInspector] public bool canMoveConveyorBelt;
 
     private static _MGR_GameManager _instance;
@@ -67,10 +67,12 @@ public class _MGR_GameManager : MonoBehaviour
         while (canMoveConveyorBelt)
         {
             yield return new WaitForSeconds(0.05f);
-            tapisContainer.transform.position += new Vector3(conveyorBeltSpeed * Time.deltaTime, 0, 0);
+            tapisContainer.transform.position += new Vector3(conveyorBeltSpeed.Evaluate(Time.time) * Time.deltaTime, 0, 0);
+            Debug.Log("Speed" + conveyorBeltSpeed.Evaluate(Time.time));
             for (int i = 0; i < itemContainer.transform.childCount; i++)
             {
-                itemContainer.transform.GetChild(i).transform.position += new Vector3(conveyorBeltSpeed * Time.deltaTime, 0, 0); ;
+                itemContainer.transform.GetChild(i).transform.position += new Vector3(conveyorBeltSpeed.Evaluate(Time.time) * Time.deltaTime, 0, 0);
+
             }
         }
     }
