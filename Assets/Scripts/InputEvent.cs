@@ -8,7 +8,8 @@ public enum SucceedableState
     INVISIBLE,
     PENDING,
     FAILABLE,
-    SUCCEEDABLE
+    SUCCEEDABLE,
+    FAILED
 }
 
 public enum InputType
@@ -77,6 +78,9 @@ public class InputEvent : MonoBehaviour
                 break;
             case SucceedableState.FAILABLE:
                 animator.SetTrigger("BecomeCurrentInput");
+                break;
+            case SucceedableState.FAILED:
+                animator.SetTrigger("BecomeFailed");
                 break;
             default:
                 break;
