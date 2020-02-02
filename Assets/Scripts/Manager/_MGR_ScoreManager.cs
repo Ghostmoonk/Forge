@@ -72,6 +72,11 @@ public class _MGR_ScoreManager : MonoBehaviour
         int scorebundle = inputScore * scoreMultiplier;
         CurrentGameScore += scorebundle;
         CurrentGameScoreGO.text = CurrentGameScore.ToString();
+
+        for (int i = 0; i < 8 - CurrentGameScore.ToString().Length; i++)
+        {
+            CurrentGameScoreGO.text = "0" + CurrentGameScoreGO.text;
+        }
     }
 
     public void comboIncrement()

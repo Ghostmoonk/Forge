@@ -98,7 +98,7 @@ public class PatternItem : MonoBehaviour
         }
     }
 
-    public bool RepairItem()
+    public bool RepairItem(PatternItem itemToRepair)
     {
         //Debug.Log("Le suceed coount est de : " + succeedCount);
         //Debug.Log("La condition minimum pour reparer est : " + Mathf.FloorToInt(queueSize / 2));

@@ -10,8 +10,7 @@ public class Blacksmith : MonoBehaviour
     [SerializeField] ParticleSystem Sparks;
     #endregion
 
-
-
+    PatternItem itemToRepair;
 
     public void vibrationStop()
     {
@@ -26,7 +25,11 @@ public class Blacksmith : MonoBehaviour
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShakin>().shakeDuration = 0.4f;
         XInputDotNetPure.GamePad.SetVibration(0, 20.0f, 20.0f);
         Invoke("vibrationStop", 0.3f);
-
+        if (itemToRepair != null)
+        {
+            _MGR_GameManager.Instance.currentPatternItem.RepairItem(itemToRepair);
+            itemToRepair = null;
+        }
 
         Sparks.Play();
         //_MGR_SoundDesign.Instance.PlaySound("" + _MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType, gameObject.GetComponent<AudioSource>());
@@ -105,11 +108,11 @@ public class Blacksmith : MonoBehaviour
                     {
                         if (!_MGR_GameManager.Instance.canMoveConveyorBelt)
                         {
-                            //Debug.Log("Je déplace le tapis");
                             // _MGR_GameManager.Instance.currentPatternItem.RepairItem();
                             _MGR_GameManager.Instance.MoveConveyorBelt();
                         }
-                        _MGR_GameManager.Instance.currentPatternItem.RepairItem();
+                        itemToRepair = _MGR_GameManager.Instance.currentPatternItem;
+                        // _MGR_GameManager.Instance.currentPatternItem.RepairItem();
                     }
                     else
                     {
