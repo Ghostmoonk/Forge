@@ -56,6 +56,14 @@ public class _MGR_GameManager : MonoBehaviour
         StartCoroutine(nameof(ConveyorBelt));
     }
 
+    private void Update()
+    {
+        if (Input.GetButtonDown("Retry"))
+        {
+            _MGR_SceneManager.Instance.LoadScene("Sylve_Bloom");
+        }
+    }
+
     public void AddItemPaternInQueue(PatternItem patternItem)
     {
         queuesPattern.Enqueue(patternItem);
