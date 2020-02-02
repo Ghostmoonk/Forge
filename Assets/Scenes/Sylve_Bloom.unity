@@ -12203,7 +12203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxItemsInQueue: 10
-  totalItemsInLevel: 1
+  totalItemsInLevel: 50
   remainingItemsInLevel: 0
   easyPatternPrefabs:
   - {fileID: 436539366572019597, guid: 45da802bd59988a42a4aa97345e36013, type: 3}
