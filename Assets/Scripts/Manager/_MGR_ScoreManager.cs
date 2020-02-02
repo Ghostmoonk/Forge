@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,11 +18,13 @@ public class _MGR_ScoreManager : MonoBehaviour
     public int[] HSint = new int[11];
     public int CurrentGameScore = 0;
 
-    public void TestButton()
-    {
-        CurrentGameScoreGO.text = "2";
-        InputValueGO.text = "yaas";
-    }
+    public Text yourScore;
+    public Text[] highScore;
+    //public void TestButton()
+    //{
+    //    CurrentGameScoreGO.text = "2";
+    //    InputValueGO.text = "yaas";
+    //}
 
     public void resethighscores()
     {
@@ -37,17 +39,17 @@ public class _MGR_ScoreManager : MonoBehaviour
 
     public void resetgamescore()
     {
-        CurrentGameScoreGO.text = "0";
-        CurrentGameScoreT1GO.text = "0";
+        //CurrentGameScoreGO.text = "0";
+        //CurrentGameScoreT1GO.text = "0";
         CurrentGameScore = 0;
-        InputValueGO.text = "0";
-        ScoreBundleGO.text = "0";
-        MultiplierGO.text = "0";
+        //InputValueGO.text = "0";
+        //ScoreBundleGO.text = "0";
+        //MultiplierGO.text = "0";
     }
 
     public void GoodInput() { DiffertentInputs(2); }
-    public void BadInput() { DiffertentInputs(1); }
-    public void RandomInput() { DiffertentInputs(0); }
+    //public void BadInput() { DiffertentInputs(1); }
+    //public void RandomInput() { DiffertentInputs(0); }
 
     public void DiffertentInputs(int mode)
     {
@@ -55,13 +57,13 @@ public class _MGR_ScoreManager : MonoBehaviour
         int multiplier = UnityEngine.Random.Range(1, 10);
         if (mode == 2) inputValue = 10;
         if (mode == 1) inputValue = 1;
-        InputValueGO.text = inputValue.ToString();
-        MultiplierGO.text = multiplier.ToString();
+        //InputValueGO.text = inputValue.ToString();
+        //MultiplierGO.text = multiplier.ToString();
         int scorebundle = inputValue * multiplier;
-        ScoreBundleGO.text = scorebundle.ToString();
+        //ScoreBundleGO.text = scorebundle.ToString();
 
-        CurrentGameScoreGO.text = (CurrentGameScore + scorebundle).ToString();
-        CurrentGameScoreT1GO.text = CurrentGameScore.ToString();
+        //CurrentGameScoreGO.text = (CurrentGameScore + scorebundle).ToString();
+        //CurrentGameScoreT1GO.text = CurrentGameScore.ToString();
         CurrentGameScore += scorebundle;
     }
 
@@ -107,15 +109,15 @@ public class _MGR_ScoreManager : MonoBehaviour
             nuHSint[10] = CurrentGameScore;
             nuHSint[11] = 10;
         }
-        LastHighGO.text = CurrentGameScore.ToString();
+        yourScore.text = "Your Score : " +CurrentGameScore.ToString();
         nuHiScore(nuHSint);
     }
 
     public void nuHiScore(int[] displayable)
     {
-        for (int i = 0; i < 11; i++)
+        for (int i = 0; i < 10; i++)
         {
-            HSobj[i].text = displayable[i].ToString();
+            highScore[i].text = displayable[i].ToString();
             HSint[i] = displayable[i];
         }
         HighlighterGO.text = HSlab[displayable[11]].text;
