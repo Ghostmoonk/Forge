@@ -19,10 +19,7 @@ public class Blacksmith : MonoBehaviour
     }
     public void CameraShaking()
     {
-        Debug.Log("" + _MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType);
-        Debug.Log("DEbug avant" + GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShakin>().shakeDuration);
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShakin>().shakeDuration = 0.4f;
-        Debug.Log("Debug après" + GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShakin>().shakeDuration);
         XInputDotNetPure.GamePad.SetVibration(0, 20.0f, 20.0f);
         Invoke("vibrationStop", 0.3f);
 
@@ -44,12 +41,12 @@ public class Blacksmith : MonoBehaviour
                     if (Input.GetButtonDown("A"))
                     {
                         //Si on a appuyé sur le bon bouton
+                        Debug.Log("A is pressed");
                         if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.CheckSucceed(InputType.A))
                         {
                             //Appelle une fonction de succès du QTE chez le gameManager
                             _MGR_SoundDesign.Instance.PlaySound("A", gameObject.GetComponent<AudioSource>());
                             Debug.Log("REUSSI A");
-                            Debug.Log(_MGR_GameManager.Instance.currentPatternItem.succeedCount);
                             _MGR_GameManager.Instance.currentPatternItem.succeedCount++;
                         }
                         //C'est raté
@@ -59,9 +56,10 @@ public class Blacksmith : MonoBehaviour
 
                         }
                     }
-                    if (Input.GetButtonDown("B"))
+                    else if (Input.GetButtonDown("B"))
                     {
-                        if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType == InputType.B)
+                        Debug.Log("B is pressed");
+                        if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.CheckSucceed(InputType.B))
                         {
                             _MGR_SoundDesign.Instance.PlaySound("B", gameObject.GetComponent<AudioSource>());
                             Debug.Log("REUSSI B");
@@ -72,9 +70,10 @@ public class Blacksmith : MonoBehaviour
                             _MGR_SoundDesign.Instance.PlaySound("" + _MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType + "_fail", gameObject.GetComponent<AudioSource>());
                         }
                     }
-                    if (Input.GetButtonDown("X"))
+                    else if (Input.GetButtonDown("X"))
                     {
-                        if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType == InputType.X)
+                        Debug.Log("X is pressed");
+                        if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.CheckSucceed(InputType.X))
                         {
                             Debug.Log("REUSSI X");
                             //_MGR_SoundDesign.Instance.PlaySound("X", gameObject.GetComponent<AudioSource>());
@@ -86,9 +85,10 @@ public class Blacksmith : MonoBehaviour
                             _MGR_SoundDesign.Instance.PlaySound("" + _MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType + "_fail", gameObject.GetComponent<AudioSource>());
                         }
                     }
-                    if (Input.GetButtonDown("Y"))
+                    else if (Input.GetButtonDown("Y"))
                     {
-                        if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType == InputType.Y)
+                        Debug.Log("Y is pressed");
+                        if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.CheckSucceed(InputType.Y))
                         {
                             Debug.Log("REUSSI Y");
                             //_MGR_SoundDesign.Instance.PlaySound("Y", gameObject.GetComponent<AudioSource>());
@@ -117,7 +117,7 @@ public class Blacksmith : MonoBehaviour
             }
             else
             {
-                Debug.Log("Pas encore de current input event actif");
+                //Debug.Log("Pas encore de current input event actif");
             }
         }
         else

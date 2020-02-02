@@ -12,6 +12,7 @@ public class InputEventActions : MonoBehaviour
     }
     public void ChangeSucceedableState(SucceedableState state)
     {
+        Debug.Log("Le state actuel du current truc devient : " + state);
         inputEvent.succeedableState = state;
     }
 
@@ -35,9 +36,7 @@ public class InputEventActions : MonoBehaviour
                     _MGR_GameManager.Instance.currentPatternItem.GoNextCurrentInputEvent();
                 }
             }
-
-            Destroy(inputEvent.gameObject);
         }
-
+        Destroy(inputEvent.gameObject);
     }
 }
