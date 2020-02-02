@@ -19,7 +19,7 @@ public class Blacksmith : MonoBehaviour
 
     public void vibrationStop()
     {
-        //XInputDotNetPure.GamePad.SetVibration(0, 0.0f, 0.0f);
+        XInputDotNetPure.GamePad.SetVibration(0, 0.0f, 0.0f);
     }
     public void SetVoidSound()
     {
