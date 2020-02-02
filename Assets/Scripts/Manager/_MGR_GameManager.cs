@@ -89,4 +89,9 @@ public class _MGR_GameManager : MonoBehaviour
         currentPatternItem.GoNextCurrentInputEvent();
     }
     #endregion
+
+    public void EndGame()
+    {
+
+    }
 }

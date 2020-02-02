@@ -37,6 +37,13 @@ public class ItemProvider : MonoBehaviour
                 InstantiateItem(PickRandomDifficulty());
                 remainingItemsInLevel--;
             }
+            else
+            {
+                if (itemsContainer.transform.childCount == 0)
+                {
+                    _MGR_GameManager.Instance.EndGame();
+                }
+            }
         }
     }
 
