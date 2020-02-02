@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class _MGR_SceneManager : MonoBehaviour
 {
@@ -45,7 +46,19 @@ public class _MGR_SceneManager : MonoBehaviour
     public void LoadEndScene(string __nom_scene)
     {
         SceneManager.LoadScene(__nom_scene);
+        StartCoroutine(WaitForLoad());
+    }
+
+    IEnumerator WaitForLoad()
+    {
+        yield return new WaitForSeconds(0.1f);
         GameObject panel = GameObject.Find("FonctionUI").GetComponent<UIFonction>().panel;
         panel.SetActive(true);
+        _MGR_ScoreManager.Instance.yourScore = GameObject.Find("YourScore").GetComponent<Text>();
+        for (int i = 0; i < _MGR_ScoreManager.Instance.highScore.Length; i++)
+        {
+            _MGR_ScoreManager.Instance.highScore[i] = GameObject.Find("HighScores").transform.GetChild(i).transform.GetChild(0).GetComponent<Text>();
+        }
+        _MGR_ScoreManager.Instance.gameover();
     }
 }

@@ -139,7 +139,7 @@ public class _MGR_ScoreManager : MonoBehaviour
             highScore[i].text = displayable[i].ToString();
             HSint[i] = displayable[i];
         }
-        HighlighterGO.text = HSlab[displayable[11]].text;
+        //HighlighterGO.text = HSlab[displayable[11]].text;
         resetgamescore();
         scoreMultiplier = 0;
     }
