@@ -121,12 +121,12 @@ public class _MGR_ScoreManager : MonoBehaviour
                 }
             }
             nuHSint[NewHighscoreSpot] = CurrentGameScore;
-            nuHSint[11] = NewHighscoreSpot;
+            nuHSint[10] = NewHighscoreSpot;
         }
         else
         {
             nuHSint[10] = CurrentGameScore;
-            nuHSint[11] = 10;
+            //nuHSint[10] = 10;
         }
         yourScore.text = "Your Score : " + CurrentGameScore.ToString();
         nuHiScore(nuHSint);
@@ -139,8 +139,11 @@ public class _MGR_ScoreManager : MonoBehaviour
             highScore[i].text = displayable[i].ToString();
             HSint[i] = displayable[i];
         }
-
-        //HighlighterGO.text = HSlab[displayable[11]].text;
+        Debug.Log(displayable[9]);
+        //highScore[displayable[9]].GetComponentInParent<Color>() = Color.white;
+        highScore[displayable[9]].color = Color.white;
+        //HighlighterGO.text = highScore[displayable[9]].text;
+        //HighlighterGO.color = Color.white;
         resetgamescore();
         scoreMultiplier = 0;
     }
