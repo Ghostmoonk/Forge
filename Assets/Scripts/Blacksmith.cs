@@ -11,6 +11,11 @@ public class Blacksmith : MonoBehaviour
     #endregion
 
     PatternItem itemToRepair;
+    #region Points
+    Transform scorePopUpSpawner;
+    Transform scorePopUpContainer;
+    [SerializeField] GameObject scorePopUpPrefab;
+    #endregion
 
     public void vibrationStop()
     {
@@ -34,6 +39,13 @@ public class Blacksmith : MonoBehaviour
         Sparks.Play();
         //_MGR_SoundDesign.Instance.PlaySound("" + _MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType, gameObject.GetComponent<AudioSource>());
     }
+
+    private void Start()
+    {
+        scorePopUpSpawner = GameObject.FindGameObjectWithTag("SpawnScorePopUp").transform;
+        scorePopUpContainer = GameObject.FindGameObjectWithTag("ScorePopUpContainer").transform;
+    }
+
     private void Update()
     {
         if (_MGR_GameManager.Instance.currentPatternItem != null)
@@ -103,7 +115,10 @@ public class Blacksmith : MonoBehaviour
                     if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.succeed)
                     {
                         _MGR_ScoreManager.Instance.UpdateScore(_MGR_GameManager.Instance.currentPatternItem.pointsPerInput);
+                        GameObject scorePopUp = Instantiate(scorePopUpPrefab, scorePopUpSpawner.position, scorePopUpSpawner.rotation, scorePopUpContainer);
+                        scorePopUp.GetComponent<TextMesh>().text = "+ " + (_MGR_GameManager.Instance.currentPatternItem.pointsPerInput * _MGR_ScoreManager.Instance.scoreMultiplier).ToString();
                     }
+
                     if (_MGR_GameManager.Instance.currentPatternItem.inputEvents.Count == 0 && _MGR_GameManager.Instance.currentPatternItem.secondInputEvent == null)
                     {
                         if (!_MGR_GameManager.Instance.canMoveConveyorBelt)

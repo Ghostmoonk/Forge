@@ -46,6 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 118ce21740fbc104285fe0992f93221a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sparks: {fileID: 0}
+  scorePopUpPrefab: {fileID: 3540313572147448897, guid: 7a43baa41c925a648b08252c8d26fb3a,
+    type: 3}
 --- !u!212 &3115499091787592262
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -10,6 +10,8 @@ TagManager:
   - Tapis
   - TapisContainer
   - SceneFader
+  - SpawnScorePopUp
+  - ScorePopUpContainer
   layers:
   - Default
   - TransparentFX

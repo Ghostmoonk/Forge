@@ -10209,7 +10209,7 @@ PrefabInstance:
     - target: {fileID: 3115499091787592262, guid: cb67fd78a51eddd4bb8066af167d3807,
         type: 3}
       propertyPath: m_WasSpriteAssigned
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3799497616692993859, guid: cb67fd78a51eddd4bb8066af167d3807,
         type: 3}
@@ -10928,6 +10928,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 513745959}
   m_CullTransparentMesh: 0
+--- !u!1 &546489268
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 546489269}
+  m_Layer: 0
+  m_Name: SpawnScorePopUp
+  m_TagString: SpawnScorePopUp
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &546489269
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546489268}
+  m_LocalRotation: {x: -0.07097508, y: 0, z: 0, w: 0.9974781}
+  m_LocalPosition: {x: 2.63, y: 2.49, z: 4.52}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: -8.14, y: 0, z: 0}
 --- !u!4 &596014722 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 60f1fdee4e2b7e247a795f097f6f2bed,
@@ -11559,6 +11589,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1119257222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1119257223}
+  m_Layer: 0
+  m_Name: ScoresPopUpContainer
+  m_TagString: ScorePopUpContainer
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1119257223
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119257222}
+  m_LocalRotation: {x: -0.07097508, y: 0, z: 0, w: 0.9974781}
+  m_LocalPosition: {x: 2.63, y: 2.49, z: 4.52}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: -8.14, y: 0, z: 0}
 --- !u!1001 &1283389244
 PrefabInstance:
   m_ObjectHideFlags: 0
