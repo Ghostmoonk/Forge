@@ -10319,14 +10319,14 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392464758}
-  m_Text: "COMBO : \n"
+  m_Text: "COMBO \n"
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 0
   m_TabSize: 4
-  m_FontSize: 0
+  m_FontSize: 62
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: a548843a95450c643aa642acd19f7225, type: 3}
@@ -10380,7 +10380,7 @@ Transform:
   m_GameObject: {fileID: 392464758}
   m_LocalRotation: {x: -0.094399236, y: -0.053544354, z: -0.013364105, w: 0.99400365}
   m_LocalPosition: {x: -0.37835026, y: -2.0289063, z: 1.7104347}
-  m_LocalScale: {x: 0.36425397, y: 0.3642539, z: 0.36425397}
+  m_LocalScale: {x: 0.11228129, y: 0.11228127, z: 0.11228129}
   m_Children: []
   m_Father: {fileID: 297672104}
   m_RootOrder: 3
@@ -11182,7 +11182,7 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.9909363
+      value: 2.7391663
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -11191,7 +11191,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 79.914825
-      value: 5.634674
+      value: 7.382904
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -11250,7 +11250,7 @@ TextMesh:
   m_Anchor: 4
   m_Alignment: 0
   m_TabSize: 4
-  m_FontSize: 0
+  m_FontSize: 210
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: 61532fae9654c4e43873445ba9043e6a, type: 3}
@@ -11304,7 +11304,7 @@ Transform:
   m_GameObject: {fileID: 799724371}
   m_LocalRotation: {x: -0.100697525, y: -0.04679243, z: -0.0232082, w: 0.9935451}
   m_LocalPosition: {x: -0.5183506, y: -0.26890612, z: 1.680435}
-  m_LocalScale: {x: 0.6056644, y: 0.6056644, z: 0.6056645}
+  m_LocalScale: {x: 0.04641509, y: 0.04641509, z: 0.0464151}
   m_Children: []
   m_Father: {fileID: 297672104}
   m_RootOrder: 1
@@ -11929,7 +11929,7 @@ TextMesh:
   m_Anchor: 4
   m_Alignment: 0
   m_TabSize: 4
-  m_FontSize: 0
+  m_FontSize: 75
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: a548843a95450c643aa642acd19f7225, type: 3}
@@ -11983,7 +11983,7 @@ Transform:
   m_GameObject: {fileID: 1423800015}
   m_LocalRotation: {x: -0.094399236, y: -0.053544354, z: -0.013364105, w: 0.99400365}
   m_LocalPosition: {x: 0.85164976, y: -1.6689062, z: 1.7804348}
-  m_LocalScale: {x: 0.6077643, y: 0.607764, z: 0.6077642}
+  m_LocalScale: {x: 0.13117377, y: 0.1311737, z: 0.13117374}
   m_Children: []
   m_Father: {fileID: 297672104}
   m_RootOrder: 5
@@ -12203,7 +12203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxItemsInQueue: 10
-  totalItemsInLevel: 8
+  totalItemsInLevel: 50
   remainingItemsInLevel: 0
   easyPatternPrefabs:
   - {fileID: 436539366572019597, guid: 45da802bd59988a42a4aa97345e36013, type: 3}
@@ -12754,7 +12754,7 @@ TextMesh:
   m_Anchor: 4
   m_Alignment: 0
   m_TabSize: 4
-  m_FontSize: 0
+  m_FontSize: 104
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: a548843a95450c643aa642acd19f7225, type: 3}
@@ -12808,7 +12808,7 @@ Transform:
   m_GameObject: {fileID: 2052164978}
   m_LocalRotation: {x: -0.094399236, y: -0.053544354, z: -0.013364105, w: 0.99400365}
   m_LocalPosition: {x: 0.46164942, y: 0.6110935, z: 1.600435}
-  m_LocalScale: {x: 0.6749698, y: 0.6749697, z: 0.6749697}
+  m_LocalScale: {x: 0.1076093, y: 0.10760928, z: 0.10760928}
   m_Children: []
   m_Father: {fileID: 297672104}
   m_RootOrder: 0
@@ -12846,7 +12846,7 @@ TextMesh:
   m_Anchor: 4
   m_Alignment: 0
   m_TabSize: 4
-  m_FontSize: 0
+  m_FontSize: 91
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: a548843a95450c643aa642acd19f7225, type: 3}
@@ -12899,8 +12899,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2091843613}
   m_LocalRotation: {x: -0.094399236, y: -0.053544354, z: -0.013364105, w: 0.99400365}
-  m_LocalPosition: {x: 1.9216497, y: -1.3889065, z: 1.850435}
-  m_LocalScale: {x: 1.0390992, y: 1.2239547, z: 1.039099}
+  m_LocalPosition: {x: 1.9216497, y: -1.44, z: 1.850435}
+  m_LocalScale: {x: 0.15910687, y: 0.18741193, z: 0.15910684}
   m_Children: []
   m_Father: {fileID: 297672104}
   m_RootOrder: 4
