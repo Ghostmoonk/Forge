@@ -9,7 +9,7 @@ public class _MGR_SceneManager : MonoBehaviour
     public static _MGR_SceneManager Instance { get { return p_instance; } }
 
     public string[] arr_SceneName;
-
+    GameObject panel
 
     void Awake()
     {
@@ -28,7 +28,7 @@ public class _MGR_SceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+         = GameObject.Find("FonctionUI").GetComponent<UIFonction>().panel;
     }
 
     // Update is called once per frame
@@ -45,7 +45,7 @@ public class _MGR_SceneManager : MonoBehaviour
     public void LoadEndScene(string __nom_scene)
     {
         SceneManager.LoadScene(__nom_scene);
-        GameObject panel = GameObject.Find("FonctionUI").GetComponent<UIFonction>().panel;
+        
         panel.SetActive(true);
     }
 }
