@@ -145,7 +145,7 @@ public class _MGR_ScoreManager : MonoBehaviour
             HSint[i] = displayable[i];
         }
         Debug.Log(displayable[9]);
-        //highScore[displayable[9]].GetComponentInParent<Color>() = Color.white;
+        highScore[displayable[9]].transform.parent.GetComponent<Text>().color = Color.white;
         highScore[displayable[9]].color = Color.white;
         //HighlighterGO.text = highScore[displayable[9]].text;
         //HighlighterGO.color = Color.white;
