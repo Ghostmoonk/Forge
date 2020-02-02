@@ -9,7 +9,7 @@ public class _MGR_ScoreManager : MonoBehaviour
     private static _MGR_ScoreManager p_instance = null;
     public static _MGR_ScoreManager Instance { get { return p_instance; } }
 
-    public Text CurrentGameScoreGO;
+    public TextMesh CurrentGameScoreGO;
     //public Text InputValueGO;
     //public Text LastHighGO;
     //public Text CurrentGameScoreT1GO;
@@ -22,7 +22,7 @@ public class _MGR_ScoreManager : MonoBehaviour
     public int CurrentGameScore = 0;
 
     public int scoreMultiplier = 0;
-    public Text scoreMultiplierGO;
+    public TextMesh scoreMultiplierGO;
 
     public Text yourScore;
     public Text[] highScore;
@@ -42,6 +42,8 @@ public class _MGR_ScoreManager : MonoBehaviour
         else if (p_instance != this)
             //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
             Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject);
     }
 
     public void resethighscores()
@@ -126,7 +128,7 @@ public class _MGR_ScoreManager : MonoBehaviour
             nuHSint[10] = CurrentGameScore;
             nuHSint[11] = 10;
         }
-        yourScore.text = "Your Score : " +CurrentGameScore.ToString();
+        yourScore.text = "Your Score : " + CurrentGameScore.ToString();
         nuHiScore(nuHSint);
     }
 
