@@ -28,7 +28,7 @@ public class Blacksmith : MonoBehaviour
     public void CameraShaking()
     {
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShakin>().shakeDuration = 0.4f;
-        //XInputDotNetPure.GamePad.SetVibration(0, 20.0f, 20.0f);
+        XInputDotNetPure.GamePad.SetVibration(0, 20.0f, 20.0f);
         Invoke("vibrationStop", 0.3f);
         if (itemToRepair != null)
         {
