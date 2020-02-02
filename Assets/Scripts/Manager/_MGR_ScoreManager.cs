@@ -1,166 +1,124 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System;
 
-public class MGR_ScoreManager : MonoBehaviour
+public class _MGR_ScoreManager : MonoBehaviour
 {
-//    // //GameScore Display
-//    // //Game Score is kept here
-//    // public static int gameScore;
+    public Text CurrentGameScoreGO;
+    public Text InputValueGO;
+    public Text LastHighGO;
+    public Text CurrentGameScoreT1GO;
+    public Text ScoreBundleGO;
+    public Text MultiplierGO;
+    public Text HighlighterGO;
+    public Text[] HSobj = new Text[11];
+    public Text[] HSlab = new Text[11];
+    public int[] HSint = new int[11];
+    public int CurrentGameScore = 0;
 
-//    // //HighScores Display
-//    // //High Score are kept here
-//    // public static int[] HighScores = new int[11];
+    public void TestButton()
+    {
+        CurrentGameScoreGO.text = "2";
+        InputValueGO.text = "yaas";
+    }
 
-//<<<<<<< HEAD
-//    //GameLaunch Trigger
-//    //Resets all HighScores to 0
-//    //Trigger upon gameLaunch [enter title screen]
-//    public static void ResetHighScores()
-//    {
-//        for (int i=0; i<11; i++)
-//        {
-//            HighScores[i]=0;
-//        }
-//    }
-//=======
-//    // //GameLaunch Trigger
-//    // //Resets all HighScores to 0
-//    // //Trigger upon gameLaunch [enter title screen]
-//    // public static void ResetHighScores()
-//    // {
-//    //     for (int i=0; i<11; i++)
-//    //     {
-//    //         highScores[i]=0;
-//    //     }
-//    // }
-//>>>>>>> f2a000d30e9d2c136742ddb1c73ca2bb979b4723
+    public void resethighscores()
+    {
+        for (int i = 0; i < 11; i++)
+        {
+            HSobj[i].text = "0";
+            HSint[i] = 0;
+            LastHighGO.text = "0";
+            HighlighterGO.text = "0";
+        }
+    }
 
-//    // //GameStart Trigger
-//    // //Resets GameScore to 0
-//    // //Trigger upon gameStart [startGame ButtonDown]
-//    // public static void ResetScore()
-//    // {
-//    //     gameScore = 0;
-//    // }
+    public void resetgamescore()
+    {
+        CurrentGameScoreGO.text = "0";
+        CurrentGameScoreT1GO.text = "0";
+        CurrentGameScore = 0;
+        InputValueGO.text = "0";
+        ScoreBundleGO.text = "0";
+        MultiplierGO.text = "0";
+    }
 
-//<<<<<<< HEAD
-//    //Score Increment
-//    //Imput was pressed, scoring happened
-//    //New extra-points to be sent in package
-//    //Trigger upon ~InputReseived [scoring needs to have been calculated]
-//    public static int[] ScoringBundle(int scoring)
-//    {
-//        int[] increaseScore = new int[2];
-//        increaseScore[0]=gameScore;
-//        increaseScore[1]=gameScore + scoring;
-//        gameScore = increaseScore[1];
-//        return increaseScore;
-//    }
+    public void GoodInput() { DiffertentInputs(2); }
+    public void BadInput() { DiffertentInputs(1); }
+    public void RandomInput() { DiffertentInputs(0); }
 
-//    //EndGame Trigger
-//    //Current GameScore is added to HighScores
-//    //Trigger upon Game over
-//    //STRUCTURE OF RETURNED ITEM:
-//        //ARRAY - 12 INTs
-//        //INTs 0 to 9 : SPOTS 1 to 10 ON BOARD
-//        //INT 10 : GAME SCORE IS LOWER THAN HIGH SCORES
-//        //INT 11 : NUMBER OF THE INT TO HIGHLIGHT (=last game score)
-//    public static int[] GameOver()
-//    {
-//        bool searchPlace = false;
-//        int newPlace = 0;
-//        int finalScore = gameScore;
-//        int[] scoreBoard = new int[12];
-//        for (int i=0; i<10; i++)
-//        {
-//            scoreBoard[i] = gameScore;
-//        }
-//=======
-//    // //Score Increment
-//    // //Imput was pressed, scoring happened
-//    // //New extra-points to be sent in package
-//    // //Trigger upon ~InputReseived [scoring needs to have been calculated]
-//    // public static int[] ScoringBundle(int scoring)
-//    // {
-//    //     int[] increaseScore = new int[2];
-//    //     increaseScore.[0]=gameScore;
-//    //     increaseScore.[1]=gameScore + scoring;
-//    //     gameScore = increaseScore[1];
-//    //     return increaseScore;
-//    // }
+    public void DiffertentInputs(int mode)
+    {
+        int inputValue = UnityEngine.Random.Range(1, 10);
+        int multiplier = UnityEngine.Random.Range(1, 10);
+        if (mode == 2) inputValue = 10;
+        if (mode == 1) inputValue = 1;
+        InputValueGO.text = inputValue.ToString();
+        MultiplierGO.text = multiplier.ToString();
+        int scorebundle = inputValue * multiplier;
+        ScoreBundleGO.text = scorebundle.ToString();
 
-//    // //EndGame Trigger
-//    // //Current GameScore is added to HighScores
-//    // //Trigger upon Game over
-//    // //STRUCTURE OF RETURNED ITEM:
-//    //     //ARRAY - 12 INTs
-//    //     //INTs 0 to 9 : SPOTS 1 to 10 ON BOARD
-//    //     //INT 10 : GAME SCORE IS LOWER THAN HIGH SCORES
-//    //     //INT 11 : NUMBER OF THE INT TO HIGHLIGHT (=last game score)
-//    // public static int[] GameOver()
-//    // {
-//    //     bool searchPlace = false;
-//    //     int newPlace = 0;
-//    //     int finalScore = gameScore;
-//    //     int[] scoreBoard = new int[12];
-//    //     for (int i=0; i<10; i++)
-//    //     {
-//    //         scoreBoard[i] = gameScore[i];
-//    //     }
-//>>>>>>> f2a000d30e9d2c136742ddb1c73ca2bb979b4723
+        CurrentGameScoreGO.text = (CurrentGameScore + scorebundle).ToString();
+        CurrentGameScoreT1GO.text = CurrentGameScore.ToString();
+        CurrentGameScore += scorebundle;
+    }
 
-//    //     //Is current game score worthy of High Scores?
-//    //     //yaas
-//    //     if (finalScore > scoreBoard[9])
-//    //     {
-//    //         searchPlace = true;
-//    //         while(searchPlace==true)
-//    //         {
-//    //             for(int i=8; i>=0; i--)
-//    //             {
-//    //                 if(scoreBoard[i]>=finalScore)
-//    //                 {
-//    //                     newPlace = i + 1;
-//    //                     searchPlace = false;
-//    //                 }
-//    //                     //NEW HIGH SCORE #1!!!
-//    //                 else if (i==0 && finalScore>scoreBoard[i])
-//    //                 {
-//    //                     searchPlace = false;
-//    //                 }
-//    //             }
-//    //         }
-//    //         //recalculate all scores @board
-//    //         if(newPlace<9)
-//    //         {
-//    //             for (int i = 8; i <= newPlace; i--)
-//    //             {
-//    //                 scoreBoard[i+1] = scoreBoard[i];
-//    //             }
-//    //         }
-//    //         scoreBoard[newPlace] = finalScore;
-//    //         scoreBoard[11] = newPlace;
-//    //         return scoreBoard;
-//    //     }
+    public void gameover()
+    {
+        bool SearchHighscoreSpot;
+        int NewHighscoreSpot = 0;
+        int[] nuHSint = new int[12];
+        for (int i = 0; i < 12; i++)
+        {
+            if (i < 10) nuHSint[i] = HSint[i];
+            else { nuHSint[i] = 0; }
+        }
 
-//<<<<<<< HEAD
-//        //nope
-//        else
-//        {
-//            scoreBoard[10] = finalScore;
-//            scoreBoard[11] = 10;
-//            return scoreBoard;
-//        }
-//    }
-//=======
-//    //     //nope
-//    //     else
-//    //     {
-//    //         scoreBoard(10) = finalScore;
-//    //         scoreBoard(11) = 10;
-//    //         return scoreBoard;
-//    //     }
-//    // }
-//>>>>>>> f2a000d30e9d2c136742ddb1c73ca2bb979b4723
+        if (CurrentGameScore > nuHSint[9])
+        {
+            SearchHighscoreSpot = true;
+            for (int i = 8; i >= 0; i--)
+            {
+                if (nuHSint[i] >= CurrentGameScore && SearchHighscoreSpot == true)
+                {
+                    NewHighscoreSpot = i + 1;
+                    SearchHighscoreSpot = false;
+                }
+                else if (i == 0 && CurrentGameScore > nuHSint[i] && SearchHighscoreSpot == true)
+                {
+                    NewHighscoreSpot = i;
+                    SearchHighscoreSpot = false;
+                }
+            }
+            if (NewHighscoreSpot < 9)
+            {
+                for (int i = 8; i >= NewHighscoreSpot; i--)
+                {
+                    nuHSint[i + 1] = nuHSint[i];
+                }
+            }
+            nuHSint[NewHighscoreSpot] = CurrentGameScore;
+            nuHSint[11] = NewHighscoreSpot;
+        }
+        else
+        {
+            nuHSint[10] = CurrentGameScore;
+            nuHSint[11] = 10;
+        }
+        LastHighGO.text = CurrentGameScore.ToString();
+        nuHiScore(nuHSint);
+    }
+
+    public void nuHiScore(int[] displayable)
+    {
+        for (int i = 0; i < 11; i++)
+        {
+            HSobj[i].text = displayable[i].ToString();
+            HSint[i] = displayable[i];
+        }
+        HighlighterGO.text = HSlab[displayable[11]].text;
+        resetgamescore();
+    }
 }

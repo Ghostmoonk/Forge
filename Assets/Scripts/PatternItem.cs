@@ -20,7 +20,7 @@ public class PatternItem : MonoBehaviour
     [Range(0, 3)]
     [SerializeField] float speedInputEventAnim;
     int queueSize;
-    int succeedCount;
+    [HideInInspector] public int succeedCount;
     #endregion
 
     #region Etat
@@ -50,6 +50,7 @@ public class PatternItem : MonoBehaviour
         {
             speedInputEventAnim = 1f;
         }
+        succeedCount = 0;
         currentInputEvent = null;
         secondInputEvent = null;
         inputEvents = new Queue<InputEvent>();
@@ -98,9 +99,13 @@ public class PatternItem : MonoBehaviour
 
     public bool RepairItem()
     {
-        if (succeedCount >= (queueSize / 2))
+        //Debug.Log("Le suceed coount est de : " + succeedCount);
+        //Debug.Log("La condition minimum pour reparer est : " + Mathf.FloorToInt(queueSize / 2));
+        if (succeedCount > Mathf.FloorToInt(queueSize / 2))
         {
+            //Debug.Log("je devrais le réparer");
             meshFilter.mesh = model.repairedMesh.sharedMesh;
+            //Multiplicateur score +1 !
             return true;
         }
         return false;

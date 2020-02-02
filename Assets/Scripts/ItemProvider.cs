@@ -25,7 +25,6 @@ public class ItemProvider : MonoBehaviour
     {
         itemsContainer = GameObject.FindGameObjectWithTag("ItemContainer");
         remainingItemsInLevel = totalItemsInLevel - itemsContainer.transform.childCount;
-        Debug.Log(remainingItemsInLevel);
     }
 
     private void Update()
@@ -34,7 +33,7 @@ public class ItemProvider : MonoBehaviour
         {
             if (remainingItemsInLevel > 0)
             {
-                Debug.Log("I must intantiate !");
+                //Debug.Log("I must intantiate !");
                 InstantiateItem(PickRandomDifficulty());
                 remainingItemsInLevel--;
             }
@@ -101,11 +100,11 @@ public class ItemProvider : MonoBehaviour
                 _MGR_GameManager.Instance.AddItemPaternInQueue(patternToInstantiate.GetComponent<PatternItem>());
                 break;
             case PatternDifficulty.NORMAL:
-                patternToInstantiate = Instantiate(normalPatternPrefabs[Random.Range(0, easyPatternPrefabs.Length - 1)], spawnPosition.position, Quaternion.identity, itemsContainer.transform);
+                patternToInstantiate = Instantiate(normalPatternPrefabs[Random.Range(0, normalPatternPrefabs.Length - 1)], spawnPosition.position, Quaternion.identity, itemsContainer.transform);
                 _MGR_GameManager.Instance.AddItemPaternInQueue(patternToInstantiate.GetComponent<PatternItem>());
                 break;
             case PatternDifficulty.HARD:
-                patternToInstantiate = Instantiate(hardPatternPrefabs[Random.Range(0, easyPatternPrefabs.Length - 1)], spawnPosition.position, Quaternion.identity, itemsContainer.transform);
+                patternToInstantiate = Instantiate(hardPatternPrefabs[Random.Range(0, hardPatternPrefabs.Length - 1)], spawnPosition.position, Quaternion.identity, itemsContainer.transform);
                 _MGR_GameManager.Instance.AddItemPaternInQueue(patternToInstantiate.GetComponent<PatternItem>());
                 break;
             default:

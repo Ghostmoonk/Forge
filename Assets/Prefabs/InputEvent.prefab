@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507478130029105739}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.037, y: 0.048, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1523141658195810648}
@@ -68,8 +68,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 56e488a003836154e850bbcda3572946, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 2b6c9fe56cb4cec4b8da6d01c01542b2, type: 3}
   m_Color: {r: 0.6711805, g: 0.34718758, b: 0.8867924, a: 0}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,7 +106,7 @@ Transform:
   m_GameObject: {fileID: 3587637984636286099}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.20299, y: 0.20299, z: 0.20299}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 1523141658195810648}
   m_RootOrder: 1
@@ -149,8 +149,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8668186394114051823, guid: 92c39d65e3c165844a473a131ab6910e,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: bf30d173ea586a349aec5624288f6256, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -187,15 +186,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7210130965007409909}
-  m_LocalRotation: {x: -0.68301296, y: 0.18301266, z: -0.18301283, w: 0.6830124}
-  m_LocalPosition: {x: 0, y: 0.209, z: -0.235}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalRotation: {x: 0.3535534, y: 0.61237246, z: -0.35355344, w: 0.6123724}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2976414997182265963}
   - {fileID: 3511016038808280655}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 60, y: 90.00001, z: 0}
 --- !u!114 &3359496579983950226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,14 +209,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   buttonSprite: {fileID: 8019270098733528244}
-  ASprite: {fileID: -860973660773902216, guid: 92c39d65e3c165844a473a131ab6910e, type: 3}
-  BSprite: {fileID: -64746764142580403, guid: 92c39d65e3c165844a473a131ab6910e, type: 3}
-  XSprite: {fileID: -8668186394114051823, guid: 92c39d65e3c165844a473a131ab6910e,
-    type: 3}
-  YSprite: {fileID: -2511121004620330929, guid: 92c39d65e3c165844a473a131ab6910e,
-    type: 3}
+  ASprite: {fileID: 21300000, guid: bf30d173ea586a349aec5624288f6256, type: 3}
+  BSprite: {fileID: 21300000, guid: 3f791063aa29b0b448ee51d4cde979ed, type: 3}
+  XSprite: {fileID: 21300000, guid: 29878c3a5e16b5a4b9cbff3d4e4d6ed5, type: 3}
+  YSprite: {fileID: 21300000, guid: 3dbb78f895d82c643a3147f7f4d170cb, type: 3}
   succeedableState: 0
-  inputType: 2
+  inputType: 1
   sprite: {fileID: 0}
   succeed: 0
 --- !u!95 &5856486424615567048

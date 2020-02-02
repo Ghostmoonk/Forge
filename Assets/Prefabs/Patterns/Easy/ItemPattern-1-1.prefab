@@ -10,22 +10,47 @@ PrefabInstance:
     - target: {fileID: 7954471660705794982, guid: c483a006eaf803f40994e3548062f8df,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.865
+      value: -0.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 7954471660705794982, guid: c483a006eaf803f40994e3548062f8df,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 7954471660705794982, guid: c483a006eaf803f40994e3548062f8df,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.79
       objectReference: {fileID: 0}
     - target: {fileID: 7954471662026075583, guid: c483a006eaf803f40994e3548062f8df,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.136
+      value: 0.557
       objectReference: {fileID: 0}
     - target: {fileID: 7954471662026075583, guid: c483a006eaf803f40994e3548062f8df,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.285
+      value: -2.023
       objectReference: {fileID: 0}
     - target: {fileID: 7954471662026075583, guid: c483a006eaf803f40994e3548062f8df,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.804
+      value: -1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7954471662026075583, guid: c483a006eaf803f40994e3548062f8df,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7954471662026075583, guid: c483a006eaf803f40994e3548062f8df,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7954471662026075583, guid: c483a006eaf803f40994e3548062f8df,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8881305791933072292, guid: c483a006eaf803f40994e3548062f8df,
         type: 3}
@@ -57,7 +82,7 @@ PrefabInstance:
     - target: {fileID: 8881305791933072314, guid: c483a006eaf803f40994e3548062f8df,
         type: 3}
       propertyPath: m_Name
-      value: ItemPattern-3
+      value: ItemPattern-1-1
       objectReference: {fileID: 0}
     - target: {fileID: 8881305791933072315, guid: c483a006eaf803f40994e3548062f8df,
         type: 3}

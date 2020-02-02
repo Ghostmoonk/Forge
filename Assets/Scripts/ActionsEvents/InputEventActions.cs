@@ -27,6 +27,7 @@ public class InputEventActions : MonoBehaviour
             {
                 if (_MGR_GameManager.Instance.currentPatternItem.inputEvents.Count == 0 && _MGR_GameManager.Instance.currentPatternItem.secondInputEvent == null)
                 {
+                    _MGR_GameManager.Instance.currentPatternItem.RepairItem();
                     _MGR_GameManager.Instance.MoveConveyorBelt();
                 }
                 else
