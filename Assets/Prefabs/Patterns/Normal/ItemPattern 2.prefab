@@ -89,8 +89,9 @@ MonoBehaviour:
   model: {fileID: 11400000, guid: 81b1b83267b785c47915ff83e5deb937, type: 2}
   currentInputEvent: {fileID: 0}
   secondInputEvent: {fileID: 0}
-  speedInputEventAnim: 0
+  speedInputEventAnim: 1.3
   succeedCount: 0
+  pointsPerInput: 100
   state: 1
 --- !u!23 &2143040545887255681
 MeshRenderer:

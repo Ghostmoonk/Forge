@@ -11,12 +11,6 @@ public class UIFonction : MonoBehaviour
         panel.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void StartUI()
     {
         _MGR_SceneManager.Instance.LoadScene("Sylve_Bloom");

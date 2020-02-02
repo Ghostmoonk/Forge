@@ -21,6 +21,7 @@ public class PatternItem : MonoBehaviour
     [SerializeField] float speedInputEventAnim;
     int queueSize;
     [HideInInspector] public int succeedCount;
+    public int pointsPerInput;
     #endregion
 
     #region Etat
@@ -103,12 +104,14 @@ public class PatternItem : MonoBehaviour
         //Debug.Log("La condition minimum pour reparer est : " + Mathf.FloorToInt(queueSize / 2));
         if (succeedCount > Mathf.FloorToInt(queueSize / 2))
         {
-            //Debug.Log("je devrais le réparer");
             meshFilter.mesh = model.repairedMesh.sharedMesh;
             meshRenderer.sharedMaterials = model.repairedMeshRenderer.sharedMaterials;
-            //Multiplicateur score +1 !
+
+            _MGR_ScoreManager.Instance.comboIncrement();
             return true;
         }
+
+        _MGR_ScoreManager.Instance.comboReboot();
         return false;
     }
 }

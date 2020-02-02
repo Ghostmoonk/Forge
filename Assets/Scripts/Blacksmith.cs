@@ -93,12 +93,16 @@ public class Blacksmith : MonoBehaviour
                             _MGR_SoundDesign.Instance.PlaySound("" + _MGR_GameManager.Instance.currentPatternItem.currentInputEvent.inputType + "_fail", gameObject.GetComponent<AudioSource>());
                         }
                     }
+                    if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.succeed)
+                    {
+                        _MGR_ScoreManager.Instance.UpdateScore(_MGR_GameManager.Instance.currentPatternItem.pointsPerInput);
+                    }
                     if (_MGR_GameManager.Instance.currentPatternItem.inputEvents.Count == 0 && _MGR_GameManager.Instance.currentPatternItem.secondInputEvent == null)
                     {
                         if (!_MGR_GameManager.Instance.canMoveConveyorBelt)
                         {
                             //Debug.Log("Je déplace le tapis");
-                           // _MGR_GameManager.Instance.currentPatternItem.RepairItem();
+                            // _MGR_GameManager.Instance.currentPatternItem.RepairItem();
                             _MGR_GameManager.Instance.MoveConveyorBelt();
                         }
                         _MGR_GameManager.Instance.currentPatternItem.RepairItem();

@@ -56,6 +56,7 @@ MonoBehaviour:
   secondInputEvent: {fileID: 0}
   speedInputEventAnim: 1.5
   succeedCount: 0
+  pointsPerInput: 200
   state: 1
 --- !u!23 &3368525820045555547
 MeshRenderer:

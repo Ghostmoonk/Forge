@@ -40,6 +40,7 @@ public class _MGR_GameManager : MonoBehaviour
 
     private void Start()
     {
+        _MGR_ScoreManager.Instance.comboReboot();
         canMoveConveyorBelt = true;
         //Génère une queue de tous les items
         queuesPattern = new Queue<PatternItem>();

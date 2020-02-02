@@ -96,7 +96,7 @@ public class ItemProvider : MonoBehaviour
         switch (difficulty)
         {
             case PatternDifficulty.EASY:
-                patternToInstantiate = Instantiate(easyPatternPrefabs[Random.Range(0, easyPatternPrefabs.Length)], spawnPosition.position, Quaternion.Euler(-26.16f,0,0), itemsContainer.transform);
+                patternToInstantiate = Instantiate(easyPatternPrefabs[Random.Range(0, easyPatternPrefabs.Length)], spawnPosition.position, Quaternion.Euler(-26.16f, 0, 0), itemsContainer.transform);
                 _MGR_GameManager.Instance.AddItemPaternInQueue(patternToInstantiate.GetComponent<PatternItem>());
                 break;
             case PatternDifficulty.NORMAL:
