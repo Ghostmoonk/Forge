@@ -9,6 +9,7 @@ TagManager:
   - Item
   - Tapis
   - TapisContainer
+  - SceneFader
   layers:
   - Default
   - TransparentFX

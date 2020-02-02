@@ -11,7 +11,12 @@ public class SceneFader : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void ChangeScene(string sceneName)
+    public void LoadEndScene(string sceneName)
+    {
+        _MGR_SceneManager.Instance.LoadEndScene(sceneName);
+    }
+
+    public void LoadScene(string sceneName)
     {
         _MGR_SceneManager.Instance.LoadScene(sceneName);
     }
