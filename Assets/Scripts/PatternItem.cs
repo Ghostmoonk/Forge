@@ -105,6 +105,7 @@ public class PatternItem : MonoBehaviour
         {
             //Debug.Log("je devrais le réparer");
             meshFilter.mesh = model.repairedMesh.sharedMesh;
+            meshRenderer.sharedMaterials = model.repairedMeshRenderer.sharedMaterials;
             //Multiplicateur score +1 !
             return true;
         }

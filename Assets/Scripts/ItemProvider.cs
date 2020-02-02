@@ -96,15 +96,15 @@ public class ItemProvider : MonoBehaviour
         switch (difficulty)
         {
             case PatternDifficulty.EASY:
-                patternToInstantiate = Instantiate(easyPatternPrefabs[Random.Range(0, easyPatternPrefabs.Length - 1)], spawnPosition.position, Quaternion.identity, itemsContainer.transform);
+                patternToInstantiate = Instantiate(easyPatternPrefabs[Random.Range(0, easyPatternPrefabs.Length)], spawnPosition.position, Quaternion.Euler(-26.16f,0,0), itemsContainer.transform);
                 _MGR_GameManager.Instance.AddItemPaternInQueue(patternToInstantiate.GetComponent<PatternItem>());
                 break;
             case PatternDifficulty.NORMAL:
-                patternToInstantiate = Instantiate(normalPatternPrefabs[Random.Range(0, normalPatternPrefabs.Length - 1)], spawnPosition.position, Quaternion.identity, itemsContainer.transform);
+                patternToInstantiate = Instantiate(normalPatternPrefabs[Random.Range(0, normalPatternPrefabs.Length)], spawnPosition.position, Quaternion.Euler(-26.16f, 0, 0), itemsContainer.transform);
                 _MGR_GameManager.Instance.AddItemPaternInQueue(patternToInstantiate.GetComponent<PatternItem>());
                 break;
             case PatternDifficulty.HARD:
-                patternToInstantiate = Instantiate(hardPatternPrefabs[Random.Range(0, hardPatternPrefabs.Length - 1)], spawnPosition.position, Quaternion.identity, itemsContainer.transform);
+                patternToInstantiate = Instantiate(hardPatternPrefabs[Random.Range(0, hardPatternPrefabs.Length)], spawnPosition.position, Quaternion.Euler(-26.16f, 0, 0), itemsContainer.transform);
                 _MGR_GameManager.Instance.AddItemPaternInQueue(patternToInstantiate.GetComponent<PatternItem>());
                 break;
             default:
