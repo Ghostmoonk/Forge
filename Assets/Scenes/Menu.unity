@@ -736,7 +736,7 @@ RectTransform:
   m_GameObject: {fileID: 320396624}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children:
   - {fileID: 754336880}
   m_Father: {fileID: 1998329081}
@@ -819,8 +819,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 2eb273d767213bb4d9cac46cb8201423, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -879,7 +879,7 @@ RectTransform:
   m_GameObject: {fileID: 328616819}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children:
   - {fileID: 1442257572}
   m_Father: {fileID: 1998329081}
@@ -962,8 +962,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 648c160190650d048a7fb9034d65a9b3, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1061,7 +1061,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Scores
+  m_Text: 
 --- !u!222 &368239341
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1098,7 +1098,7 @@ RectTransform:
   m_GameObject: {fileID: 395602418}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.2384, y: 4.4768, z: 2.2384}
   m_Children:
   - {fileID: 469146082}
   m_Father: {fileID: 636234614}
@@ -1106,7 +1106,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 242, y: -151.7}
+  m_AnchoredPosition: {x: 194.6, y: -124.4}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &395602420
@@ -1181,8 +1181,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: b950f3bf7ac1b2a4db3763409145f52a, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1267,7 +1267,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Back to menu
+  m_Text: 
 --- !u!222 &469146084
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1662,7 +1662,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Quit
+  m_Text: 
 --- !u!222 &754336882
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2174,6 +2174,7 @@ MonoBehaviour:
   arr_SceneName:
   - Menu
   - Sylve_Bloom
+  panel: {fileID: 636234613}
 --- !u!4 &1374825011
 Transform:
   m_ObjectHideFlags: 0
@@ -2201,11 +2202,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentGameScoreGO: {fileID: 0}
-  InputValueGO: {fileID: 0}
-  LastHighGO: {fileID: 0}
-  CurrentGameScoreT1GO: {fileID: 0}
-  ScoreBundleGO: {fileID: 0}
-  MultiplierGO: {fileID: 0}
   HighlighterGO: {fileID: 0}
   HSobj:
   - {fileID: 0}
@@ -2233,6 +2229,8 @@ MonoBehaviour:
   - {fileID: 0}
   HSint: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   CurrentGameScore: 0
+  scoreMultiplier: 0
+  scoreMultiplierGO: {fileID: 0}
   yourScore: {fileID: 1752876934}
   highScore:
   - {fileID: 1426040993}
@@ -2390,7 +2388,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play
+  m_Text: 
 --- !u!222 &1442257574
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2675,7 +2673,7 @@ RectTransform:
   m_GameObject: {fileID: 1645714194}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children:
   - {fileID: 368239339}
   m_Father: {fileID: 1998329081}
@@ -2758,8 +2756,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: b38897fffa696ce4fb8aa88fcaf6c070, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
