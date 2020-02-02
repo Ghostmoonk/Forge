@@ -69,24 +69,24 @@ public class _MGR_ScoreManager : MonoBehaviour
     {
         bool SearchHighscoreSpot;
         int NewHighscoreSpot = 0;
-        int FinalGameScore = CurrentGameScore;
         int[] nuHSint = new int[12];
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 12; i++)
         {
-            nuHSint[i] = HSint[i];
+            if (i < 10) nuHSint[i] = HSint[i];
+            else { nuHSint[i] = 0; }
         }
 
-        if (FinalGameScore > nuHSint[9])
+        if (CurrentGameScore > nuHSint[9])
         {
             SearchHighscoreSpot = true;
             for (int i = 8; i >= 0; i--)
             {
-                if (nuHSint[i] >= FinalGameScore && SearchHighscoreSpot == true)
+                if (nuHSint[i] >= CurrentGameScore && SearchHighscoreSpot == true)
                 {
                     NewHighscoreSpot = i + 1;
                     SearchHighscoreSpot = false;
                 }
-                else if (i == 0 && FinalGameScore > nuHSint[i] && SearchHighscoreSpot == true)
+                else if (i == 0 && CurrentGameScore > nuHSint[i] && SearchHighscoreSpot == true)
                 {
                     NewHighscoreSpot = i;
                     SearchHighscoreSpot = false;
@@ -94,20 +94,20 @@ public class _MGR_ScoreManager : MonoBehaviour
             }
             if (NewHighscoreSpot < 9)
             {
-                for (int i = 8; i <= NewHighscoreSpot; i--)
+                for (int i = 8; i >= NewHighscoreSpot; i--)
                 {
                     nuHSint[i + 1] = nuHSint[i];
                 }
             }
-            nuHSint[NewHighscoreSpot] = FinalGameScore;
+            nuHSint[NewHighscoreSpot] = CurrentGameScore;
             nuHSint[11] = NewHighscoreSpot;
         }
         else
         {
-            nuHSint[10] = FinalGameScore;
+            nuHSint[10] = CurrentGameScore;
             nuHSint[11] = 10;
         }
-        LastHighGO.text = FinalGameScore.ToString();
+        LastHighGO.text = CurrentGameScore.ToString();
         nuHiScore(nuHSint);
     }
 
@@ -116,13 +116,9 @@ public class _MGR_ScoreManager : MonoBehaviour
         for (int i = 0; i < 11; i++)
         {
             HSobj[i].text = displayable[i].ToString();
-        }
-        HighlighterGO.text = HSlab[displayable[11]].text;
-        for (int i = 0; i < 10; i++)
-        {
-            HSobj[i].text = displayable[i].ToString();
             HSint[i] = displayable[i];
         }
+        HighlighterGO.text = HSlab[displayable[11]].text;
         resetgamescore();
     }
 }
