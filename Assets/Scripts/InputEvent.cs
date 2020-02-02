@@ -86,7 +86,7 @@ public class InputEvent : MonoBehaviour
     //Fonction qui vérifie si il est bon
     public bool CheckSucceed(InputType type)
     {
-        Debug.Log("Le type envoyé est :" + type + " alors que le type du qte est :" + inputType);
+        //Debug.Log("Le type envoyé est :" + type + " alors que le type du qte est :" + inputType);
         if (succeedableState == SucceedableState.SUCCEEDABLE && inputType == type)
         {
             succeed = true;

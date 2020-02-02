@@ -10,16 +10,19 @@ public class _MGR_ScoreManager : MonoBehaviour
     public static _MGR_ScoreManager Instance { get { return p_instance; } }
 
     public Text CurrentGameScoreGO;
-    public Text InputValueGO;
-    public Text LastHighGO;
-    public Text CurrentGameScoreT1GO;
-    public Text ScoreBundleGO;
-    public Text MultiplierGO;
+    //public Text InputValueGO;
+    //public Text LastHighGO;
+    //public Text CurrentGameScoreT1GO;
+    //public Text ScoreBundleGO;
+    //public Text MultiplierGO;
     public Text HighlighterGO;
     public Text[] HSobj = new Text[11];
     public Text[] HSlab = new Text[11];
     public int[] HSint = new int[11];
     public int CurrentGameScore = 0;
+
+    public int scoreMultiplier = 0;
+    public Text scoreMultiplierGO;
 
     public Text yourScore;
     public Text[] highScore;
@@ -47,7 +50,7 @@ public class _MGR_ScoreManager : MonoBehaviour
         {
             HSobj[i].text = "0";
             HSint[i] = 0;
-            LastHighGO.text = "0";
+            //LastHighGO.text = "0";
             HighlighterGO.text = "0";
         }
     }
@@ -62,24 +65,23 @@ public class _MGR_ScoreManager : MonoBehaviour
         //MultiplierGO.text = "0";
     }
 
-    public void GoodInput() { DiffertentInputs(2); }
-    //public void BadInput() { DiffertentInputs(1); }
-    //public void RandomInput() { DiffertentInputs(0); }
-
-    public void DiffertentInputs(int mode)
+    public void UpdateScore(int inputScore)
     {
-        int inputValue = UnityEngine.Random.Range(1, 10);
-        int multiplier = UnityEngine.Random.Range(1, 10);
-        if (mode == 2) inputValue = 10;
-        if (mode == 1) inputValue = 1;
-        //InputValueGO.text = inputValue.ToString();
-        //MultiplierGO.text = multiplier.ToString();
-        int scorebundle = inputValue * multiplier;
-        //ScoreBundleGO.text = scorebundle.ToString();
-
-        //CurrentGameScoreGO.text = (CurrentGameScore + scorebundle).ToString();
-        //CurrentGameScoreT1GO.text = CurrentGameScore.ToString();
+        int scorebundle = inputScore * scoreMultiplier;
         CurrentGameScore += scorebundle;
+        CurrentGameScoreGO.text = CurrentGameScore.ToString();
+    }
+
+    public void comboIncrement()
+    {
+        scoreMultiplier++;
+        scoreMultiplierGO.text = scoreMultiplier.ToString();
+    }
+
+    public void comboReboot()
+    {
+        scoreMultiplier = 1;
+        scoreMultiplierGO.text = scoreMultiplier.ToString();
     }
 
     public void gameover()
@@ -137,5 +139,6 @@ public class _MGR_ScoreManager : MonoBehaviour
         }
         HighlighterGO.text = HSlab[displayable[11]].text;
         resetgamescore();
+        scoreMultiplier = 0;
     }
 }

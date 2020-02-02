@@ -41,7 +41,6 @@ public class Blacksmith : MonoBehaviour
                     if (Input.GetButtonDown("A"))
                     {
                         //Si on a appuyé sur le bon bouton
-                        Debug.Log("A is pressed");
                         if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.CheckSucceed(InputType.A))
                         {
                             //Appelle une fonction de succès du QTE chez le gameManager
@@ -58,7 +57,6 @@ public class Blacksmith : MonoBehaviour
                     }
                     else if (Input.GetButtonDown("B"))
                     {
-                        Debug.Log("B is pressed");
                         if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.CheckSucceed(InputType.B))
                         {
                             _MGR_SoundDesign.Instance.PlaySound("B", gameObject.GetComponent<AudioSource>());
@@ -72,11 +70,9 @@ public class Blacksmith : MonoBehaviour
                     }
                     else if (Input.GetButtonDown("X"))
                     {
-                        Debug.Log("X is pressed");
                         if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.CheckSucceed(InputType.X))
                         {
-                            Debug.Log("REUSSI X");
-                            //_MGR_SoundDesign.Instance.PlaySound("X", gameObject.GetComponent<AudioSource>());
+                            _MGR_SoundDesign.Instance.PlaySound("X", gameObject.GetComponent<AudioSource>());
                             //GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShakin>().shakeDuration = 0.5f;
                             _MGR_GameManager.Instance.currentPatternItem.succeedCount++;
                         }
@@ -87,11 +83,9 @@ public class Blacksmith : MonoBehaviour
                     }
                     else if (Input.GetButtonDown("Y"))
                     {
-                        Debug.Log("Y is pressed");
                         if (_MGR_GameManager.Instance.currentPatternItem.currentInputEvent.CheckSucceed(InputType.Y))
                         {
-                            Debug.Log("REUSSI Y");
-                            //_MGR_SoundDesign.Instance.PlaySound("Y", gameObject.GetComponent<AudioSource>());
+                            _MGR_SoundDesign.Instance.PlaySound("Y", gameObject.GetComponent<AudioSource>());
                             _MGR_GameManager.Instance.currentPatternItem.succeedCount++;
                         }
                         else
@@ -103,8 +97,8 @@ public class Blacksmith : MonoBehaviour
                     {
                         if (!_MGR_GameManager.Instance.canMoveConveyorBelt)
                         {
-                            Debug.Log("Je déplace le tapis");
-                            _MGR_GameManager.Instance.currentPatternItem.RepairItem();
+                            //Debug.Log("Je déplace le tapis");
+                           // _MGR_GameManager.Instance.currentPatternItem.RepairItem();
                             _MGR_GameManager.Instance.MoveConveyorBelt();
                         }
                         _MGR_GameManager.Instance.currentPatternItem.RepairItem();
