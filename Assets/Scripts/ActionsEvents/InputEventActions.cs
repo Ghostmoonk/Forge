@@ -20,9 +20,10 @@ public class InputEventActions : MonoBehaviour
     {
         if (!inputEvent.succeed)
         {
-            inputEvent.succeedableState = SucceedableState.FAILABLE;
+            // inputEvent.succeedableState = SucceedableState.FAILABLE;
             inputEvent.CheckSucceed(InputType.NONE);
-
+            inputEvent.succeedableState = SucceedableState.FAILED;
+            inputEvent.PlayAnimation();
             //Il n'y a plus de QTE dans le pattern, on change d'item
             if (inputEvent == _MGR_GameManager.Instance.currentPatternItem.currentInputEvent)
             {
@@ -38,6 +39,14 @@ public class InputEventActions : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            DestroyInput();
+        }
+    }
+
+    public void DestroyInput()
+    {
         Destroy(inputEvent.gameObject);
     }
 }
