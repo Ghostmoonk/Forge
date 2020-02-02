@@ -51,7 +51,7 @@ public class _MGR_SceneManager : MonoBehaviour
 
     IEnumerator WaitForLoad()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.01f);
         GameObject panel = GameObject.Find("FonctionUI").GetComponent<UIFonction>().panel;
         panel.SetActive(true);
         Debug.Log(GameObject.Find("YourScore").GetComponent<Text>());
