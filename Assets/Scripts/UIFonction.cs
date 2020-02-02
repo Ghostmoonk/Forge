@@ -19,7 +19,7 @@ public class UIFonction : MonoBehaviour
 
     public void StartUI()
     {
-        _MGR_SceneManager.Instance.LoadScene("Menu");
+        _MGR_SceneManager.Instance.LoadScene("Sylve_Bloom");
     }
 
     public void ScoresUI()
