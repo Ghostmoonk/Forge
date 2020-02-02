@@ -54,6 +54,7 @@ public class _MGR_SceneManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         GameObject panel = GameObject.Find("FonctionUI").GetComponent<UIFonction>().panel;
         panel.SetActive(true);
+        Debug.Log(GameObject.Find("YourScore").GetComponent<Text>());
         _MGR_ScoreManager.Instance.yourScore = GameObject.Find("YourScore").GetComponent<Text>();
         for (int i = 0; i < _MGR_ScoreManager.Instance.highScore.Length; i++)
         {
