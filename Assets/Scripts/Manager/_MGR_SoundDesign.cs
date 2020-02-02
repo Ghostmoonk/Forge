@@ -14,6 +14,7 @@ public class _MGR_SoundDesign : MonoBehaviour
         public AudioClip[] arr_sons;
     }
 
+
     // tous les sons à utiliser dans le jeu
     // seront initialisés à la création du manager
     public Son[] sons;
@@ -43,6 +44,10 @@ public class _MGR_SoundDesign : MonoBehaviour
         p_sons = new Dictionary<string, AudioClip[]>();
         foreach (Son _son in sons)
             p_sons.Add(_son.nom, _son.arr_sons);
+    }
+    void start()
+    {
+        PlaySound("font_sonore", gameObject.GetComponent<AudioSource>());
     }
     // jouer un son du jeu
     // vérifier que le son existe
